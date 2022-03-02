@@ -1,1 +1,348 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+		--main-color: #dcb868;
+		--second-color: #f1f1f1;
+		--third-color: #e2ac00;
+		--fourth-color: #202020;
+
+		--main-color-transparent: #dcb7689d;
+		--second-color-transparent: #f9f9f99d;
+		--third-color-transparent: #e2ac009d;
+		--fourth-color-transparent: #2020209d;
+		
+		--primary: #007bff;
+		--success: #28a745;
+		--warning: #ffc107;
+		--danger: #dc3545;
+	}
+	/* General Styles */
+		html {
+			box-sizing: border-box;
+		}
+		*, *:before, *:after {
+			box-sizing: inherit;
+			z-index: 0;
+		}
+		body {
+			font-size: 62.5%;
+			font-family: 'Poppins', sans-serif;
+			color: var(--fourth-color);
+			transition: all 1s ease-in-out;
+		}
+		.container {
+			max-width: 1200px!important;
+		}
+		/* Text */
+			h1, h2, h3, h4, h5, h6, p {
+				margin: 0;
+			}
+			h1{
+				font-size: 3.3rem;
+			}
+			h2 {
+				font-size: 2.9rem;
+			}
+			h3 {
+				font-size: 2.5rem;
+			}
+			h4 {
+				font-size: 2.1rem;
+			}
+			h5 {
+				font-size: 1.7rem;
+			}
+			h6 {
+				font-size: 1.3rem;
+			}
+			p {
+				font-size: .95rem;
+				padding: .5rem 0;
+			}
+
+			@media screen and (max-width: 768px) {
+					h1{
+						font-size: 2.5rem;
+					}
+					h2 {
+						font-size: 2.3rem;
+					}
+					h3 {
+						font-size: 2rem;
+					}
+					h4 {
+						font-size: 1.7rem;
+					}
+					h5 {
+						font-size: 1.4rem;
+					}
+					h6 {
+						font-size: 1.1rem;
+					}
+					p {
+						font-size: .8rem;
+						padding: .4rem 0;
+					}
+			}
+		/* End Text */
+
+		a {
+			text-decoration: none;
+			font-size: .9rem;
+			color: #fff;
+			transition: all .3s ease-in-out;
+		}
+		@media screen and (max-width:768px) {
+			a {
+					font-size: 1rem;
+			}
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: rgba(255,255,255,0.7);
+		}
+
+		small {
+			font-size: .65rem;
+		}
+
+		section {
+			margin: 0;
+			background-color: #fff;
+			text-align: center;
+			position: relative;
+			z-index: 1;
+		}
+			@media screen and (max-width: 768px) {
+				section {
+					padding: 0;
+				}
+			}
+
+		img {
+			max-width: 100%;
+		}
+
+		blockquote {
+			border-left: 5px solid var(--third-color);
+			border-radius: 7px;
+			padding: 15px;
+			margin: 3rem 0;
+			font-size: 1.1rem;
+			font-weight: bold;
+		}
+
+		.quote {
+			padding: 20px 0;
+			font-style: italic;
+			font-size: 1.1rem;
+			font-weight: bold;
+		}
+
+		.title {
+			text-transform: uppercase;
+			padding: 20px 0;
+			font-weight: bold;
+		}
+			@media screen and (max-width: 768px){
+				.title {
+					padding: 5px;
+				}
+			}
+		.subtitle {
+			text-transform: capitalize;
+		}
+
+		.box {
+			padding: 1rem;
+		}
+
+			/* Firefox */
+		.scroll {
+			scrollbar-color: var(--main-color) var(--fourth-color);
+			scrollbar-width: thin;
+		}
+			/* Chrome */
+		.scroll::-webkit-scrollbar {
+			width: 7.5px;
+		}
+		.scroll::-webkit-scrollbar-track {
+			background: var(--fourth-color);
+		}
+		.scroll::-webkit-scrollbar-thumb {
+			background: var(--main-color);
+			border-right: 1px solid var(--third-color);
+		}
+
+
+		.divider-main,
+		.divider-second,
+		.divider-third{
+			width: 500px;
+			height: 5px;
+			margin: 20px auto;
+		}
+		.divider-main {
+			background-color: var(--main-color);
+		}
+		.divider-second {
+			background-color: var(--second-color);
+		}
+		.divider-third {
+			background-color: var(--third-color);
+		}
+			@media screen and (max-width: 768px) {
+					.divider-main,
+					.divider-second,
+					.divider-third {
+						width: 95%;
+					}
+			}
+
+		.no-mobile {
+			display: block;
+		}
+		.mobile,
+		.mobile-flex {
+			display: none;
+		}
+
+		@media screen and (max-width: 768px) {
+			.no-mobile {
+				display: none;
+			}
+			.mobile {
+				display: block;
+			}
+			.mobile-flex {
+				display: flex;
+			}
+		}
+
+		/* Overlay */
+			.overlay-light,
+			.overlay-normal,
+			.overlay-dark,
+			.overlay-color,
+			.overlay-transparent {
+					position: relative;
+			}
+
+			.overlay-light-circle,
+			.overlay-normal-circle,
+			.overlay-dark-circle{
+					position: relative;
+					border-radius: 50%;
+			}
+			.overlay-light::before,
+			.overlay-normal::before,
+			.overlay-dark::before,
+			.overlay-color::before,
+			.overlay-light-circle::before,
+			.overlay-normal-circle::before,
+			.overlay-dark-circle::before,
+			.overlay-transparent::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					width: 100%;
+					z-index: -1;
+			}
+			.overlay-light-circle::before,
+			.overlay-normal-circle::before,
+			.overlay-dark-circle::before {
+					border-radius: 50%;
+			}
+
+			.overlay-color::before {
+				background-color: var(--main-color-transparent);
+			}
+
+			.overlay-transparent::before {
+				background-color: rgba(255,255,255,0.85);
+			}
+			
+			.overlay-light::before,
+			.overlay-light-circle::before {
+					background-color: rgba(0, 0, 0, 0.3);
+			}
+			.overlay-normal::before,
+			.overlay-normal-circle::before {
+					background-color: rgba(0, 0, 0, 0.6);
+			}
+			.overlay-dark::before,
+			.overlay-dark-circle::before {
+					background-color: rgba(0, 0, 0, 0.8);
+			}
+		/* Fin Overlay */
+
+		/* Buttons */
+			.btn-first,
+			.btn-second,
+			.btn-third,
+			.btn-fourth,
+			.btn-fifth {
+				padding: .5rem 1rem;
+				font-size: .9rem;
+				text-transform: uppercase;
+				font-weight: bold;
+				transition: all .3s ease-in-out;
+				border-radius: 5rem;
+			}
+
+			/*  */
+				.btn-first {
+					color: #fff;
+					border: 2px solid var(--main-color);
+					background-color: var(--main-color);
+				}
+				.btn-first:hover {
+					background-color: var(--main-color-transparent);
+				}
+
+			/*  */
+				.btn-second {
+						background-color: var(--second-color);
+						color: var(--fourth-color);
+				}
+				.btn-second:hover {
+						background-color: var(--fourth-color);
+						color: #fff;
+				}
+
+			/*  */
+				.btn-third {
+						background-color: var(--fourth-color);
+						color: var(--main-color);
+				}
+				.btn-third:hover {
+						background-color: var(--fourth-color-transparent);
+						color: var(--second-color);
+				}
+
+			/*  */
+				.btn-fourth {
+						background-color: transparent;
+						color: var(--fourth-color);
+						border: 2px solid var(--fourth-color);
+				}
+				.btn-fourth:hover {
+						background-color: var(--fourth-color);
+						color: #fff;
+				}
+
+			/*  */
+				.btn-fifth {
+						background-color: var(--third-color);
+						color: #fff;
+				}
+				.btn-fifth:hover {
+						background-color: var(--second-color);
+						color: var(--third-color);
+				}
+		/* Fin Buttons */
+/* Fin General Styles */
