@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg">
+	<div class="container-fluid container">
+		<a class="navbar-brand" [routerLink]="['/']">
+			<img src="assets/img/logo/logo_blanco.png" alt="Logo Cdipi" width="100px">
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+			<div class="bar-btn"></div>
+			<div class="bar-btn"></div>
+			<div class="bar-btn"></div>
+		</button>
+		<div class="collapse navbar-collapse" id="mainMenu">
+			<div class="navbar-nav gap-3">
+				<a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
+				<a class="nav-link" [routerLink]="['/nosotros']" routerLinkActive="active" >Nosotros</a>
+				<a class="nav-link" href="#cursos">Cursos</a>
+				<a class="nav-link sign-in" href="/plataforma">
+					Iniciar Sesión
+					<i class="fa-solid fa-user"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</nav>

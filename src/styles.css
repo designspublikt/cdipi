@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-		--main-color: #dcb868;
-		--second-color: #f1f1f1;
-		--third-color: #e2ac00;
-		--fourth-color: #202020;
+		--main-color: #202020;
+		--second-color: #2b3483;
+		--third-color: #f1ba39;
+		--fourth-color: #bbbbbb;
 
-		--main-color-transparent: #dcb7689d;
-		--second-color-transparent: #f9f9f99d;
-		--third-color-transparent: #e2ac009d;
-		--fourth-color-transparent: #2020209d;
+		--main-color-transparent: #2020209d;
+		--second-color-transparent: #2b34839d;
+		--third-color-transparent: #f1ba399d;
+		--fourth-color-transparent: #bbbbbb9d;
 		
 		--primary: #007bff;
 		--success: #28a745;
@@ -26,8 +26,9 @@
 		}
 		body {
 			font-size: 62.5%;
-			font-family: 'Poppins', sans-serif;
-			color: var(--fourth-color);
+			font-family: 'Roboto', sans-serif;
+			font-weight: 300;
+			color: var(--main-color);
 			transition: all 1s ease-in-out;
 		}
 		.container {
@@ -131,6 +132,20 @@
 			margin: 3rem 0;
 			font-size: 1.1rem;
 			font-weight: bold;
+		}
+
+		ul, ol {
+			margin: 0; 
+		}  
+
+		ul li {
+			font-size: 1rem;
+			margin: 10ox 0;
+		}
+
+		ul li,
+		ol li {
+			list-style: none; 
 		}
 
 		.quote {
@@ -281,6 +296,10 @@
 		/* Fin Overlay */
 
 		/* Buttons */
+			button:focus {
+				box-shadow: none!important;
+			}
+
 			.btn-first,
 			.btn-second,
 			.btn-third,

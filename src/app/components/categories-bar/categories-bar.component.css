@@ -1,0 +1,10 @@
+.categories {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+	.category {
+		text-transform: uppercase;
+		font-weight: 400;
+		padding: .2rem 1rem;
+	}
