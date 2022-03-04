@@ -7,10 +7,20 @@
 	justify-content: space-between;
 	align-items: center;
 }
+	@media screen and (max-width: 768px) {
+		.bar .container {
+			justify-content: center;
+		}
+	}
 	.social-networks {
 		display: flex;
 		gap: 1rem;
 	}
+		@media screen and (max-width: 768px) {
+			.social-networks {
+				display: none;
+			}
+		}
 		.social-networks .icon {
 			width: 25px;
 			height: 25px;
@@ -51,6 +61,11 @@
 			justify-content: space-between;
 			align-items: center;
 		}
+			@media screen and (max-width: 768px) {
+				.form-group .input-box {
+					width: 100%;
+				}
+			}
 			.form-group .input-box i {
 				font-size: 1rem;
 				padding: .6rem;

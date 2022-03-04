@@ -2,9 +2,22 @@
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	padding: .2rem 0;
+	max-width: 100%;
 }
+	@media screen and (max-width: 768px) {
+		.categories {
+			justify-content: flex-start;
+			overflow-x: scroll;
+		}
+	}
 	.category {
 		text-transform: uppercase;
 		font-weight: 400;
 		padding: .2rem 1rem;
 	}
+		.category a {
+			color: var(--main-color);
+			font-weight: 500;
+			font-size: .95rem;
+		}
