@@ -1,50 +1,9 @@
 <nav class="categories-nav">
 	<div class="categories container scroll">
-		<div class="category">
-			<a [routerLink]="['/']">
-				Profesionales
+		<div *ngFor="let categoryBar of categoriesBar" class="category" [ngStyle]="{'display': categoryBar.type != 'general' ? 'inline-block' : 'none'}">
+			<a [routerLink]="['/' + categoryBar.type + '/category', categoryBar.link]">
+				{{ categoryBar.name }}
 			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Inmigración
-			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Empleos
-			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Innovación
-			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Residencias
-			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Oportunidades
-			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Cultura
-			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Política
-			</a>
-		</div>
-		<div class="category">
-			<a [routerLink]="['/']">
-				Tecnología
-			</a>
-		</div>
-		
+		</div>		
 	</div>
 </nav>

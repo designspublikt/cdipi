@@ -1,0 +1,26 @@
+<div class="articles-library">
+	<app-category-title	class="col-12"
+							[categoryName]="categoryArticle.name"
+							[colorHex]="categoryArticle.color"></app-category-title>
+	<div *ngFor="let article of articles; let i = index;" class="article-box last-articles">
+		<div class="article" [routerLink]="['/articles/view', i]">
+			<img src="https://picsum.photos/id/2{{i+9}}/500/300" alt="article Thumbnail">
+		</div>
+		<div class="description-box">
+			<div class="article-title" [routerLink]="['/articles/view', i]">
+				<p class="article-title-text title">Título del Articulo {{ i }} </p>
+			</div>
+			<div class="category-info" [style.background-color]="categoryArticle.color">
+				<div class="category-icon" [routerLink]="['/articles/category', categoryArticle.link]">
+					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
+				</div>
+				<div class="category-name" [routerLink]="['/articles/category', categoryArticle.link]">
+					<p class="category-name-text text-white">{{ categoryArticle.name }}</p>
+				</div>
+			</div>
+			<div class="description-info" [routerLink]="['/articles/view', i]">
+				<p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi perspiciatis debitis quas sunt veniam, ad recusandae</p>
+			</div>
+		</div>
+	</div>
+</div>

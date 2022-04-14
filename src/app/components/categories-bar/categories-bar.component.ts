@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Category } from 'src/app/interfaces/category';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-categories-bar',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesBarComponent implements OnInit {
 
-  constructor() { }
+  @Input() type: string = '';
+  categoriesBar: Category[] = [];
+
+  constructor(  private _CategoriesService: CategoriesService) { }
 
   ngOnInit(): void {
+    this.getCategories(this.type);
+  }
+
+  getCategories(type: string) {
+    if(type == '') {
+      this.categoriesBar = this._CategoriesService.getAll();
+      return;
+    }
+
+    this.categoriesBar = this._CategoriesService.getByType(type);
   }
 
 }

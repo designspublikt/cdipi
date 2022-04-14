@@ -1,0 +1,26 @@
+<div class="videos-library">
+	<app-category-title	class="col-12"
+							[categoryName]="categoryVideo.name"
+							[colorHex]="categoryVideo.color"></app-category-title>
+	<div *ngFor="let video of videos; let i = index;" class="video-box last-videos">
+		<div class="video" [routerLink]="['/videos/view', i]">
+			<img src="https://picsum.photos/id/2{{i+9}}/500/300" alt="Video Thumbnail">
+		</div>
+		<div class="description-box">
+			<div class="video-title" [routerLink]="['/videos/view', i]">
+				<p class="video-title-text title">Título del Video {{ i }} </p>
+			</div>
+			<div class="category-info" [style.background-color]="categoryVideo.color">
+				<div class="category-icon" [routerLink]="['/videos/category', categoryVideo.link]">
+					<img src="assets/img/videos/categories/cat.png" alt="Category Icon">
+				</div>
+				<div class="category-name" [routerLink]="['/videos/category', categoryVideo.link]">
+					<p class="category-name-text text-white">{{ categoryVideo.name }}</p>
+				</div>
+			</div>
+			<div class="description-info" [routerLink]="['/videos/view', i]">
+				<p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi perspiciatis debitis quas sunt veniam, ad recusandae</p>
+			</div>
+		</div>
+	</div>
+</div>

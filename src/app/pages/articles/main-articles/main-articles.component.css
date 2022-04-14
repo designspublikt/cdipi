@@ -1,0 +1,125 @@
+.all-articles {
+	padding: 1rem 0;
+}
+	.last-articles-box {
+		display: grid;
+		margin: 1rem 0;
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: auto;
+		gap: 1rem;
+	}
+	@media screen and (max-width: 768px) {
+		.last-articles-box {
+			grid-template-columns: 1fr;
+		}
+	}
+
+		.last-article-main,
+		.last-article-up,
+		.last-article-down  {
+			cursor: pointer;
+		}
+
+
+		.last-articles-box .last-article-main {
+			grid-column: 1 / 2;
+			grid-row: 1 / 3;
+			position: relative;
+		}
+		@media screen and (max-width: 768px) {
+			.last-articles-box .last-article-main {
+				grid-column: 1 / -1;
+				grid-row: 1 / 2;
+			}
+		}
+
+		.last-articles-box .last-article-up {
+			grid-column: 2 / 3;
+			grid-row: 1 / 2;
+			position: relative;
+		}
+		@media screen and (max-width: 768px) {
+			.last-articles-box .last-article-up {
+				grid-column: 1 / -1;
+				grid-row: 2 / 3;
+			}
+		}
+
+		.last-articles-box .last-article-down {
+			grid-column: 2 / 3;
+			grid-row: 2 / 3;
+			position: relative;
+		}
+		@media screen and (max-width: 768px) {
+			.last-articles-box .last-article-down {
+				grid-column: 1 / -1;
+				grid-row: 3 / 4;
+			}
+		}
+			.last-articles-box .art-info {
+				position: absolute;
+				bottom: 0;
+				text-align: justify;
+				padding: .5rem 1rem;
+				background-color: rgba(0,0,0,0.4);
+				color: #fff;
+			}
+				.last-articles-box .art-info * {
+					padding: 0;
+				}
+				.last-articles-box .art-info .art-description {
+					font-size: .8rem;
+					padding-top: .6rem;
+				}
+
+				.last-articles-box .category-info {
+					display: flex;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 1rem;
+				}
+					.last-articles-box .category-info * {
+						font-size: .8rem;
+					}
+					.last-articles-box .category-info img {
+						width: 20px;
+					}
+
+
+					
+	.other-articles {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+		.other-articles .article-box {
+			flex: 0 calc(33.3% - 1rem);
+			text-align: justify;
+			cursor: pointer;
+		}
+		@media screen and (max-width: 768px) {
+			.other-articles .article-box {
+				flex: 0 calc(50% - 1rem);
+			}
+		}
+
+		.other-articles .other-art-info * {
+				padding: 0;
+			}
+			.other-articles .other-art-info .art-description {
+				font-size: .8rem;
+				padding-top: .5rem;
+			}
+
+			.other-articles .other-category-info {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 1rem;
+				padding: .5rem!important;
+			}
+				.other-articles .other-category-info img {
+					width: 25px;
+				}

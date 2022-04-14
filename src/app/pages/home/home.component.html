@@ -1,25 +1,389 @@
 <header>
-	<div class="bars">
-		<app-navbar></app-navbar>
-		<app-search-bar></app-search-bar>
-		<app-categories-bar></app-categories-bar>
-	</div>
+	<app-full-nav-bar></app-full-nav-bar>
 	<div class="header-content container">
-		<div class="main-article"></div>
-		<div class="last-video"></div>
-		<div class="previous-article"></div>
-		<div class="previous-video"></div>
+		<div	class="first content-box"
+				style="background-image: url('assets/img/articles/1.jpg');">
+
+			<div class="article-info">
+				<div class="article-title">
+					<p class="title">Título del Artículo</p>
+				</div>
+				<div class="article-description no-mobile">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta hic natus labore necessitatibus reiciendis quod odio adipisci aut animi</p>
+				</div>
+				<div class="article-category">
+					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
+					<label>Nombre de Categoría</label>
+				</div>
+			</div>
+
+		</div>
+		<div	class="second content-box">
+			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/RbZ9THKCqfM" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<div	class="third content-box"
+				style="background-image: url('assets/img/articles/2.jpg');">
+
+			<div class="article-info">
+				<div class="article-title">
+					<p class="title">Título del Artículo</p>
+				</div>
+				<div class="article-description no-mobile">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+				</div>
+				<div class="article-category">
+					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
+					<label>Nombre de Categoría</label>
+				</div>
+			</div>
+
+		</div>
+		<div	class="fourth content-box">
+			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/QyhwSYhX09s" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
 	</div>
 </header>
 
 <section class="first-section container">
+	<!-- Main Articles -->
 	<div class="category articles main">
-
+		<app-category-title	[categoryName]="'profesionales'"
+									[colorHex]="'#d93637'"></app-category-title>
+		<div class="main-articles">
+			<div class="article">
+				<div class="art-image">
+					<img src="assets/img/articles/3.jpg" alt="Image Article">
+				</div>
+				<div class="art-content">
+					<p class="title"><strong>Título Artículo</strong></p>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda accusantium doloremque aliquam provident enim amet</p>
+					<a href="#" class="link">Leer Más...</a>
+				</div>
+			</div>
+			<div class="article">
+				<div class="art-image">
+					<img src="assets/img/articles/4.jpg" alt="Image Article">
+				</div>
+				<div class="art-content">
+					<p class="title"><strong>Título Artículo</strong></p>
+					<p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, asperiores maiores, debitis rem neque porro iste sunt id ea tempore ad quos nisi explicabo</p>
+					<a href="#" class="link">Leer Más...</a>
+				</div>
+			</div>
+		</div>
 	</div>
+
+	<!-- Secondary Articles -->
 	<div class="category articles secondary">
-
+		<div class="other-articles left">
+			<div class="article">
+				<div class="art-img col-12 col-sm-6">
+					<img src="assets/img/articles/1.jpg" alt="Image Article">
+				</div>
+				<div class="art-content col-12 col-sm-6">
+					<p class="title">Título Artículo</p>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
+				</div>
+			</div>
+			<div class="article">
+				<div class="art-img col-12 col-sm-6">
+					<img src="assets/img/articles/2.jpg" alt="Image Article">
+				</div>
+				<div class="art-content col-12 col-sm-6">
+					<p class="title">Título Artículo</p>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
+				</div>
+			</div>
+		</div>
+		<div class="other-articles right">
+			<div class="article">
+				<div class="art-img col-12 col-sm-6">
+					<img src="assets/img/articles/3.jpg" alt="Image Article">
+				</div>
+				<div class="art-content col-12 col-sm-6">
+					<p class="title">Título Artículo</p>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
+				</div>
+			</div>
+			<div class="article">
+				<div class="art-img col-12 col-sm-6">
+					<img src="assets/img/articles/4.jpg" alt="Image Article">
+				</div>
+				<div class="art-content col-12 col-sm-6">
+					<p class="title">Título Artículo</p>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
+				</div>
+			</div>
+		</div>
+		<div class="view-more">
+			<button class="btn btn-third" routerLink="/articles">Ver Todos los artículos</button>
+		</div>
 	</div>
-	<div class="category videos">
 
+	<!-- Videos -->
+	<div class="category videos">
+		<app-category-title	[categoryName]="'Inmigracion'"
+									[colorHex]="'#bba4ce'"></app-category-title>
+
+		<div class="video-list">
+			<div class="video">
+				<div class="thumbnail col-5 col-sm-6">
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/JQ0ydtyQpD4" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="vid-content col-7 col-sm-6">
+					<p class="title">Título de Video</p>
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae inventore, vero tempora voluptatum facilis consequuntur alias hic vel, veritatis pariatur</p>
+				</div>
+			</div>
+			<div class="video">
+				<div class="thumbnail col-5 col-sm-6">
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/1AYCdgue2yU" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="vid-content col-7 col-sm-6">
+					<p class="title">Título de Video</p>
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur illum minima numquam ad quae fugit dicta dolore alias, eaque obcaecati quidem debitis quo asperiores non aliquam sint consectetur, cupiditate animi?</p>
+				</div>
+			</div>
+			<div class="video">
+				<div class="thumbnail col-5 col-sm-6">
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dTJ6HEogsyI" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="vid-content col-7 col-sm-6">
+					<p class="title">Título de Video</p>
+					<p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem reprehenderit, nihil sunt minima explicabo labore nemo!</p>
+				</div>
+			</div>
+			<div class="video">
+				<div class="thumbnail col-5 col-sm-6">
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/BCU1eeBbjHY" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="vid-content col-7 col-sm-6">
+					<p class="title">Título de Video</p>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur rerum quibusdam optio, placeat reiciendis quia assumenda porro accusamus delectus dolore, nihil quis magni amet</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="view-more">
+			<button routerLink="/videos" class="btn btn-third">Ir a la librería</button>
+		</div>
 	</div>
 </section>
+
+<section class="second-section container">
+	<div class="courses-area">
+		<app-category-title	[categoryName]="'nuestros cursos'"
+									[colorHex]="'#6cafbf'"></app-category-title>
+								
+		<swiper	class="swiper"
+					[slidesPerView]="1"
+					[navigation]="true"
+					[autoplay]="{delay:2000}">
+
+			<ng-template class="swiperSlide" swiperSlide>
+				<div class="courses-box">
+					<div class="course col-12 col-sm-6">
+						<div class="img-course">
+							<img src="assets/img/courses/1.jpg" alt="Course Image">
+						</div>
+						<div class="course-content">
+							<div class="course-description">
+								<p class="title p-0">Título del Curso</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+							</div>
+							<button type="button" class="btn btn-second">Inscribirme</button>
+						</div>
+					</div>
+					<div class="course col-12 col-sm-6">
+						<div class="img-course">
+							<img src="assets/img/courses/2.jpg" alt="Course Image">
+						</div>
+						<div class="course-content">
+							<div class="course-description">
+								<p class="title p-0">Título del Curso</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit?</p>
+							</div>
+							<button type="button" class="btn btn-second">Inscribirme</button>
+						</div>
+					</div>
+					<div class="course col-12 col-sm-6">
+						<div class="img-course">
+							<img src="assets/img/courses/3.jpg" alt="Course Image">
+						</div>
+						<div class="course-content">
+							<div class="course-description">
+								<p class="title p-0">Título del Curso</p>
+								<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit</p>
+							</div>
+							<button type="button" class="btn btn-second">Inscribirme</button>
+						</div>
+					</div>
+					<div class="course col-12 col-sm-6">
+						<div class="img-course">
+							<img src="assets/img/courses/4.jpg" alt="Course Image">
+						</div>
+						<div class="course-content">
+							<div class="course-description">
+								<p class="title p-0">Título del Curso</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+							</div>
+							<button type="button" class="btn btn-second">Inscribirme</button>
+						</div>
+					</div>
+				</div>
+			</ng-template>
+		</swiper>
+		<div class="banner-vertical overlay-color">
+			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vero expedita voluptatem amet quidem recusandae odio quaerat tenetur</p>
+			<button class="btn btn-outline-first">¿Quienes Somos?</button>
+		</div>
+		<div class="banner-horizontal">
+			<div class="services-box">
+				<div class="service">
+					<div class="icon-service">
+						<img src="assets/img/home/services/coaching.png" alt="Coahing Image">
+					</div>
+					<div class="description-service">
+						<h6 class="title">Coaching Profesional</h6>
+					</div>
+				</div>
+				<div class="service">
+					<div class="icon-service">
+						<img src="assets/img/home/services/online.png" alt="Online Image">
+					</div>
+					<div class="description-service">
+						<h6 class="title">Capacitación Virtual</h6>
+					</div>
+				</div>
+				<div class="service">
+					<div class="icon-service">
+						<img src="assets/img/home/services/certification.png" alt="Certification Image">
+					</div>
+					<div class="description-service">
+						<h6 class="title">Certificación</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="contact-form-area">
+		<app-category-title	[categoryName]="'Contacto'"
+									[colorHex]="'#202020'"></app-category-title>
+
+		<div class="contact-form-box">
+			<form class="contact-form">
+				<div class="form-group">
+					<input	class="form-control"
+								type="text"
+								placeholder="Nombre Completo">
+				</div>
+				<div class="form-group">
+					<input	class="form-control"
+								type="text"
+								placeholder="Correo Electrónico">
+				</div>
+				<div class="form-group">
+					<label>Consulta</label>
+					<textarea	class="form-control"
+									rows="3"></textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-first w-100">Enviar</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="social-networks">
+			<div class="icon">
+				<i class="fa-brands fa-facebook-f fa-2x"></i>
+			</div>
+			<div class="icon">
+				<i class="fa-brands fa-instagram fa-2x"></i>
+			</div>
+			<div class="icon">
+				<i class="fa-brands fa-whatsapp fa-2x"></i>
+			</div>
+			<div class="icon">
+				<i class="fa-brands fa-twitter fa-2x"></i>
+			</div>
+			<div class="icon">
+				<i class="fa-brands fa-youtube fa-2x"></i>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="third-section container">
+	<div class="articles">
+		<app-category-title	[categoryName]="'Empleos'"
+									[colorHex]="'#654315'"></app-category-title>
+
+		<div class="articles-content">
+			<div class="main-article">
+				<div class="image-article">
+					<img src="assets/img/articles/5.jpg" alt="Image Article">
+				</div>
+				<div class="content-article">
+					<p class="title p-0">Título del Artículo</p>
+					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsum vel, harum error eveniet incidunt sint officiis adipisci voluptatum, maxime hic sequi, delectus commodi. Omnis maxime eaque error veniam voluptates?</p>
+				</div>
+			</div>
+			<div class="other-articles">
+				<div class="article">
+					<div class="article-image col-5">
+						<img src="assets/img/articles/6.jpg" alt="Image Article">
+					</div>
+					<div class="article-content col-7">
+						<p class="title p-0">Título del Artículo</p>
+						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					</div>
+				</div>
+				<div class="article">
+					<div class="article-image col-5">
+						<img src="assets/img/articles/7.jpg" alt="Image Article">
+					</div>
+					<div class="article-content col-7">
+						<p class="title p-0">Título del Artículo</p>
+						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					</div>
+				</div>
+				<div class="article">
+					<div class="article-image col-5">
+						<img src="assets/img/articles/8.jpg" alt="Image Article">
+					</div>
+					<div class="article-content col-7">
+						<p class="title p-0">Título del Artículo</p>
+						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="videos">
+		<app-category-title	[categoryName]="'Innovación'"
+									[colorHex]="'#b75c2f'"></app-category-title>
+		
+		<div class="videos-content">
+			<div class="video">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/d61HJ2tIopE" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+			</div>
+			<div class="video">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/hwyV7EGLwqI" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+			</div>
+			<div class="video">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/k_RtS3sag1Y" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+			</div>
+			<div class="video">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/35Ce1Q2CG6M" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+			</div>
+			<div class="video">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/c7FMfQJw6Jk" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+			</div>
+			<div class="video">
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/zuf4NnRym0Q" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+			</div>
+		</div>
+	</div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,129 @@
+footer {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	height: 40vh;
+}
+@media screen and (max-width: 768px) {
+	footer {
+		grid-template-columns: 1fr;
+		height: auto;
+	}
+}
+	.about-us, .menu, .social-networks {
+		text-align: center;
+		padding: 1rem 2rem;
+	}
+	@media screen and (max-width: 768px) {
+		.about-us, .menu, .social-networks {
+			padding: 1rem;
+		}
+	}
+
+	.separator {
+		grid-column: 1 / 4;
+		grid-row: 1 / 2;
+		background-color: var(--second-color);
+		height: 10px;
+	}
+	@media screen and (max-width: 768px) {
+		.separator {
+			grid-column: 1 / 2;
+		}
+	}
+
+	.about-us {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		text-align: justify;
+	}
+		.about-us .logo img {
+			max-width: 120px;
+		}
+		.about-us .description * {
+			font-size: .8rem;
+		}
+
+	.menu {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+	}
+	@media screen and (max-width: 768px) {
+		.menu {
+			grid-column: 1 / 2;
+			grid-row: 3 / 4;
+		}
+	}
+		.menu .nav-link {
+			text-transform: uppercase;
+			color: var(--main-color);
+			letter-spacing: 3px;
+			font-weight: 600;
+			text-align: center;
+		}
+
+	.social-networks {
+		grid-column: 3 / 4;
+		grid-row: 2 / 3;
+	}
+	@media screen and (max-width: 768px) {
+		.social-networks {
+			grid-column: 1 / 2;
+			grid-row: 4 / 5;
+		}
+	}
+		.social-networks .social-icons {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+			.social-networks .social-icons .network {
+				width: 2.5rem;
+				height: 2.5rem;
+				padding: 1rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				background-color: var(--main-color);
+				cursor: pointer;
+			}
+			.social-networks .social-icons .network:hover {
+				background-color: var(--main-color-transparent);
+			}
+				.social-networks .social-icons .network i {
+					font-size: 1.3rem;
+					color: #fff;
+				}
+
+		.social-networks .contact-info {
+			padding: 1rem;
+			max-width: 300px;
+			margin: 0 auto;
+		}
+			.social-networks .contact-info .item {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				padding-left: 1rem;
+			}
+				.social-networks .contact-info .item .icon {
+					padding: .3rem 1rem;
+				}
+					.social-networks .contact-info .item .icon i {
+						font-size: 1rem;
+					}
+				
+				.social-networks .contact-info .item .info * {
+					padding: 0;
+				}
+
+
+.copyright {
+	grid-column: 1 / 4;
+	grid-row: 3 / 4;
+	background-color: #cacaca;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

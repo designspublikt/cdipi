@@ -1,0 +1,17 @@
+.not-found-section {
+	height: 100vh;
+}
+	.not-found-info {
+		padding: 2rem 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		height: calc(100% - 154px);
+	}
+		.not-found-info .image img {
+			width: 150px;
+		}
+		.not-found-info .text {
+			padding: 3rem;
+		}

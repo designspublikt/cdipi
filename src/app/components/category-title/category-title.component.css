@@ -1,0 +1,28 @@
+.category-title-box {
+	display: flex;
+	align-items: center;
+}
+	.category-title-content {
+		display: flex;
+		gap: .5rem;
+		justify-content: center;
+		align-items: center;
+		padding: .3rem 1rem;
+	}
+	.category-title-content .category-text {
+		text-transform: uppercase;
+		color: #fff;
+		padding: 0;
+		margin: 0;
+		white-space: nowrap;
+	}
+	.category-title-content img {
+		max-width: 25px;
+	}
+
+	.category-title-divider {
+		display: inline-block;
+		height: 5px;
+		width: 100%;
+		margin-left: .5rem;
+	}

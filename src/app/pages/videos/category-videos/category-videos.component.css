@@ -1,0 +1,41 @@
+.videos-library {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+	.videos-library .video-box {
+		flex: 0 calc(33.3% - 1rem);
+		cursor: pointer;
+		transition: all .2s ease-in-out;
+	}
+	@media screen and (max-width: 768px) {
+		.videos-library .video-box {
+			flex: 0 calc(100%);
+		}
+	}
+	.videos-library .video-box:hover {
+		background-color: #00000015;
+	}
+		.video-box .video-title .title {
+			padding: 0;
+		}
+
+		.video-box .category-info {
+			display: flex;
+			align-items: center;
+		}
+			.video-box .category-icon img {
+				width: 20px;
+				margin: 0 1rem;
+			}
+
+		.video-box .category-name .category-name-text {
+			font-weight: bold;
+		}
+
+		.video-box .description-info {
+			padding: 1rem;
+		}
+			.video-box .description-info .description-text {
+				text-align: justify;
+			}
