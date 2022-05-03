@@ -1,8 +1,9 @@
 <header>
 	<app-full-nav-bar></app-full-nav-bar>
 	<div class="header-content container">
-		<div	class="first content-box"
-				style="background-image: url('assets/img/articles/1.jpg');">
+		<div	class="first content-box "
+				style="background-image: url('assets/img/articles/1.jpg');"
+				[routerLink]="['/articles/view', 1]">
 
 			<div class="article-info">
 				<div class="article-title">
@@ -22,7 +23,8 @@
 			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/RbZ9THKCqfM" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>
 		<div	class="third content-box"
-				style="background-image: url('assets/img/articles/2.jpg');">
+				style="background-image: url('assets/img/articles/2.jpg');"
+				[routerLink]="['/articles/view', 1]">
 
 			<div class="article-info">
 				<div class="article-title">
@@ -50,7 +52,7 @@
 		<app-category-title	[categoryName]="'profesionales'"
 									[colorHex]="'#d93637'"></app-category-title>
 		<div class="main-articles">
-			<div class="article">
+			<div class="article" [routerLink]="['/articles/view', 1]">
 				<div class="art-image">
 					<img src="assets/img/articles/3.jpg" alt="Image Article">
 				</div>
@@ -60,7 +62,7 @@
 					<a href="#" class="link">Leer Más...</a>
 				</div>
 			</div>
-			<div class="article">
+			<div class="article" [routerLink]="['/articles/view', 1]">
 				<div class="art-image">
 					<img src="assets/img/articles/4.jpg" alt="Image Article">
 				</div>
@@ -76,7 +78,7 @@
 	<!-- Secondary Articles -->
 	<div class="category articles secondary">
 		<div class="other-articles left">
-			<div class="article">
+			<div class="article" [routerLink]="['/articles/view', 1]">
 				<div class="art-img col-12 col-sm-6">
 					<img src="assets/img/articles/1.jpg" alt="Image Article">
 				</div>
@@ -85,7 +87,7 @@
 					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
 				</div>
 			</div>
-			<div class="article">
+			<div class="article" [routerLink]="['/articles/view', 1]">
 				<div class="art-img col-12 col-sm-6">
 					<img src="assets/img/articles/2.jpg" alt="Image Article">
 				</div>
@@ -96,7 +98,7 @@
 			</div>
 		</div>
 		<div class="other-articles right">
-			<div class="article">
+			<div class="article" [routerLink]="['/articles/view', 1]">
 				<div class="art-img col-12 col-sm-6">
 					<img src="assets/img/articles/3.jpg" alt="Image Article">
 				</div>
@@ -105,7 +107,7 @@
 					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
 				</div>
 			</div>
-			<div class="article">
+			<div class="article" [routerLink]="['/articles/view', 1]">
 				<div class="art-img col-12 col-sm-6">
 					<img src="assets/img/articles/4.jpg" alt="Image Article">
 				</div>
@@ -126,7 +128,7 @@
 									[colorHex]="'#bba4ce'"></app-category-title>
 
 		<div class="video-list">
-			<div class="video">
+			<div class="video" [routerLink]="['/videos/view', 1]">
 				<div class="thumbnail col-5 col-sm-6">
 					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/JQ0ydtyQpD4" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
@@ -135,7 +137,7 @@
 					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae inventore, vero tempora voluptatum facilis consequuntur alias hic vel, veritatis pariatur</p>
 				</div>
 			</div>
-			<div class="video">
+			<div class="video" [routerLink]="['/videos/view', 1]">
 				<div class="thumbnail col-5 col-sm-6">
 					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/1AYCdgue2yU" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
@@ -144,7 +146,7 @@
 					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur illum minima numquam ad quae fugit dicta dolore alias, eaque obcaecati quidem debitis quo asperiores non aliquam sint consectetur, cupiditate animi?</p>
 				</div>
 			</div>
-			<div class="video">
+			<div class="video" [routerLink]="['/videos/view', 1]">
 				<div class="thumbnail col-5 col-sm-6">
 					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dTJ6HEogsyI" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
@@ -153,7 +155,7 @@
 					<p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem reprehenderit, nihil sunt minima explicabo labore nemo!</p>
 				</div>
 			</div>
-			<div class="video">
+			<div class="video" [routerLink]="['/videos/view', 1]">
 				<div class="thumbnail col-5 col-sm-6">
 					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/BCU1eeBbjHY" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
@@ -319,7 +321,7 @@
 									[colorHex]="'#654315'"></app-category-title>
 
 		<div class="articles-content">
-			<div class="main-article">
+			<div class="main-article" [routerLink]="['/articles/view', 1]">
 				<div class="image-article">
 					<img src="assets/img/articles/5.jpg" alt="Image Article">
 				</div>
@@ -329,7 +331,7 @@
 				</div>
 			</div>
 			<div class="other-articles">
-				<div class="article">
+				<div class="article" [routerLink]="['/articles/view', 1]">
 					<div class="article-image col-5">
 						<img src="assets/img/articles/6.jpg" alt="Image Article">
 					</div>
@@ -338,7 +340,7 @@
 						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 					</div>
 				</div>
-				<div class="article">
+				<div class="article" [routerLink]="['/articles/view', 1]">
 					<div class="article-image col-5">
 						<img src="assets/img/articles/7.jpg" alt="Image Article">
 					</div>
@@ -347,7 +349,7 @@
 						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 					</div>
 				</div>
-				<div class="article">
+				<div class="article" [routerLink]="['/articles/view', 1]">
 					<div class="article-image col-5">
 						<img src="assets/img/articles/8.jpg" alt="Image Article">
 					</div>

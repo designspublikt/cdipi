@@ -143,6 +143,7 @@ app-category-title {
 			
 				.category.articles.main .main-articles .article {
 					position: relative;
+					cursor: pointer;
 				}
 					.category.articles.main .main-articles .article .art-content {
 						position: absolute;
@@ -206,6 +207,7 @@ app-category-title {
 				justify-content: center;
 				align-items: center;
 				padding: 1rem 0;
+				cursor: pointer;
 			}
 			@media screen and(max-width: 768px) {
 				.category.articles.secondary .other-articles .article {
@@ -506,6 +508,7 @@ app-category-title {
 				}
 					.third-section .articles .articles-content .main-article {
 						grid-column: 1 / 2;
+						cursor: pointer;
 					}
 						.third-section .articles .articles-content .main-article .title {
 							font-size: .9rem;
@@ -529,6 +532,7 @@ app-category-title {
 						.third-section .articles .articles-content .other-articles .article {
 							display: flex;
 							flex-wrap: wrap;
+							cursor: pointer;
 						}
 
 							.third-section .articles .articles-content .other-articles .article .title {

@@ -1,0 +1,21 @@
+
+.list-articles {
+	padding: 1rem .5rem;
+}
+	tr th {
+		text-transform: uppercase;
+	}
+
+	tr th,
+	tr td {
+		vertical-align: middle;
+		font-size: .8rem;
+		padding: .5rem;
+	}
+
+		.title-td {
+			width: 30%;
+		}
+		.actions-td {
+			width: 10%;
+		}

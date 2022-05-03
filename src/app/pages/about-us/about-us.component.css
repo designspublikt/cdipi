@@ -1,0 +1,61 @@
+.about-us-section {
+	padding: 1rem 0;
+}
+	.about-us-section .about-us-info {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
+		.about-us-info .text1,
+		.about-us-info .text2 {
+			text-align: justify;
+			text-align-last: center;
+		}
+
+		.about-us-info img {
+			width: 300px;
+			margin: 0 auto;
+		}
+
+	.banner-horizontal {
+		grid-column: 1 / 3;
+		grid-row: 3 / 4;
+		background: rgb(144,170,187);
+		background: linear-gradient(90deg, #90aabb 50%, #cacaca 80%, #cacaca 100%);
+		margin: 1rem 0 0 0;
+	}
+		@media screen and (max-width: 768px) {
+			.banner-horizontal {
+				grid-column: 1 / 3;
+				grid-row: 4 / 5;
+				background: linear-gradient(90deg, #90aabb 20%, #cacaca 80%, #cacaca 100%);
+			}
+		}
+		.banner-horizontal .services-box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+		}
+			@media screen and (max-width: 768px) {
+				.banner-horizontal .services-box {
+					flex-direction: column;
+					justify-content: center;
+					align-items: flex-start;
+				}
+			}
+			.banner-horizontal .services-box .service {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1rem;
+				flex: 0 calc(33.3% - 1rem);
+				padding: 1rem;
+			}
+				.banner-horizontal .services-box .icon-service img {
+					max-width: 50px;
+				}
+				.banner-horizontal .services-box .description-service * {
+					color: #fff;
+				}

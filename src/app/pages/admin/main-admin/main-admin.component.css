@@ -1,0 +1,30 @@
+.main-admin-section {
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 15% 85%;
+	grid-template-rows: 10% 90%;
+	background-color: #f1f1f1;
+}
+
+	.main-admin-section .topbar {
+		grid-column: 1 / -1;
+		grid-row: 1 / 2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		app-top-bar-admin {
+			width: 100%;
+		}
+
+	.main-admin-section .sidebar {
+		grid-column: 1 / 2;
+		grid-row: 2 / -1;
+	}
+
+	.main-admin-section .content {
+		grid-column: 2 / -1;
+		grid-row: 2 / -1;
+		height: calc(100vh - 60px);
+		background-color: #fff;
+	}

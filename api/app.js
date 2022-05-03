@@ -17,6 +17,10 @@ const app = express();
 		res.send('Bienvenido a la API Centro de Innovación y Desarrollo Integral');
 	});
 
+	app.use('/api/auth', require('./routes/auth'));
+
+	app.use('/api/articles', require('./routes/articles'));
+
 /* PORT Config */
 	const PORT = process.env.PORT || 3000;
 

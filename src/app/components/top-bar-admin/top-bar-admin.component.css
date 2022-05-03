@@ -1,0 +1,39 @@
+.topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1rem;
+}
+	.topbar .logo {
+		width: 110px;
+	}
+
+	.topbar .options {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		.topbar .options .option {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: .2rem;
+			width: 40px;
+			height: 40px;
+			background-color: var(--second-color);
+			border-radius: 50%;
+			margin: .2rem;
+			cursor: pointer;
+			transition: all .2s  ease-in-out;
+		}
+		.topbar .options .option:hover {
+			background-color: #fff;
+		}
+			.topbar .options .option i {
+				font-size: 1rem;
+				color: #fff;
+				transition: all .2s ease-in-out;
+			}
+			.topbar .options .option:hover i {
+				color: var(--second-color);
+			}

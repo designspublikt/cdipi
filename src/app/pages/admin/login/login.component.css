@@ -1,0 +1,60 @@
+.section-login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+@media screen and (max-width: 768px) {
+	.section-login {
+		padding: 1rem;
+	}
+}
+	.login-box {
+		width: 400px;
+		border: 1px solid #cacaca;
+		border-radius: 5px;
+		padding: 1rem;
+		background-color: #f1f1f1;
+	}
+	.login-form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+		.login-form .logo {
+			width: 250px;
+		}
+
+		.login-form .form-group {
+			border: 1px solid #cacaca;
+			border-radius: 0;
+			padding: 0 .3rem;
+			margin: .2rem 0;
+			width: 200px;
+			background-color: #fff;
+		}
+
+		.login-form .form-control {
+			border: none;
+			text-align: center;
+			font-size: .9rem;
+			background-color: transparent;
+		}
+			.login-form .form-control:focus {
+				box-shadow: none;
+			}
+
+		.login-form .btn-submit {
+			width: 200px;
+			margin: .2rem 0;
+		}
+			.login-form .btn {
+				border-radius: 5px;
+				width: 100%;
+				font-size: .8rem;
+			}
+
+		.login-box a {
+			color: var(--main-color);
+		}

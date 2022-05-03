@@ -1,0 +1,19 @@
+<section class="section-login">
+	<div class="login-box">
+		<form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+			<div class="logo">
+				<img src="assets/img/logo/logo-texto-color.png" alt="Logo cdipi">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="username">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="password">
+			</div>
+			<div class="btn-submit">
+				<button class="btn btn-primary">Login</button>
+			</div>
+			<a href="/">Regresar a la web</a>
+		</form>
+	</div>
+</section>
