@@ -1,5 +1,8 @@
 <section class="videos-sections">
-	<app-admin-section-header [title]="'Gestión Videos'"></app-admin-section-header>
+	<app-admin-section-header	[title]="'Gestión Videos'"
+										[addLink]="'./add'"
+										[listLink]="'/admin/videos'"></app-admin-section-header>
+										
 	<div class="section-content">
 		<router-outlet></router-outlet>
 	</div>

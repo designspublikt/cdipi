@@ -25,6 +25,7 @@
 	.main-admin-section .content {
 		grid-column: 2 / -1;
 		grid-row: 2 / -1;
-		height: calc(100vh - 60px);
+		height: calc(100vh - 62px);
 		background-color: #fff;
+		overflow-y: scroll;
 	}

@@ -1,0 +1,52 @@
+.add-articles-box {
+	padding: 1rem;
+}
+	.add-articles-box .add-articles-form {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 1rem;
+		gap: 1rem;
+	}
+	@media screen and (max-width: 768px) {
+		.add-articles-box .add-articles-form {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+		.add-articles-form .form-group {
+			text-align: left;
+		}
+		.add-articles-form .form-control {
+			font-size: .9rem;
+		}
+
+		.add-articles-form .group3 {
+			grid-column: 1 / -1;
+		}
+			.group3 .submit-btn button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 0 auto;
+			}
+
+		.add-articles-form .image-cropper {
+			width: 100%;
+			max-height: 100vh;
+			position: fixed;
+			z-index: 5;
+			top: 0;
+			left: 0;
+			background-color: rgba(0,0,0,0.6);
+			justify-content: center;
+			align-items: center;
+			display: none;
+			transition: all .3s ease-in-out;
+		}
+			.image-cropper.show {
+				display: flex!important;
+			}
+			.image-cropper .modal-content {
+				max-width: 850px;
+				max-height: 100vh;
+			}

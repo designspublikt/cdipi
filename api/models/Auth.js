@@ -16,7 +16,7 @@ class Auth {
 				if(err) reject(err);
 
 				if(Array.isArray(response) && response.length < 1) {
-					reject(new Error('User doesn\'t exist or wrong credentials'));
+					reject(new Error('User doesn\'t exist'));
 				}else {
 					passwordHsh = response[0].password;
 				}

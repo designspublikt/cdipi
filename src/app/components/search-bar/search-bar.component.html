@@ -2,33 +2,69 @@
 	<div class="container">
 		<div class="social-networks">
 			<div class="icon">
-				<i class="fa-brands fa-facebook-f"></i>
+				<a href="https://www.facebook.com/Innovacion2.0.Franklin.Heiligs" target="_blank">
+					<i class="fa-brands fa-facebook-f"></i>
+				</a>
 			</div>
 			<div class="icon">
-				<i class="fa-brands fa-instagram"></i>
+				<a href="https://www.instagram.com/innovation2.0.franklin.heiligs/" target="_blank">
+					<i class="fa-brands fa-instagram"></i>
+				</a>
 			</div>
 			<div class="icon">
 				<i class="fa-brands fa-whatsapp"></i>
 			</div>
-			<div class="icon">
-				<i class="fa-brands fa-twitter"></i>
-			</div>
-			<div class="icon">
-				<i class="fa-brands fa-youtube"></i>
-			</div>
 		</div>
 		<div class="search">
 			<div class="search-box">
-				<form>
+				<form class="search-form" #searchForm="ngForm" (ngSubmit)="search(searchForm)">
 					<div class="form-group">
 						<label for="search-term">Buscar:</label>
 						<div class="input-box">
-							<input type="text">
-							<i class="fa-solid fa-magnifying-glass"></i>
+							<input	id="term"
+										name="term"
+										type="text"
+										required
+										ngModel>
+							<button class="btn">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</button>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
+	</div>
+</div>
+
+<div *ngIf="showResults" class="results-box scroll">
+	<app-spinner *ngIf="loading" [loadingMessage]="'Buscando...'"></app-spinner>
+	<div *ngIf="!loading" class="head">
+		<p class="subtitle">Se encontraron {{ results['articles'].length }} articulos y {{ results['videos'].length }} videos</p>
+		<i class="fa-solid fa-circle-xmark" (click)="closeBox()"></i>
+	</div>
+	<hr>
+	<div class="articles-results">
+		<h6 class="subtitle">Artículos</h6>
+		<ng-container *ngIf="results['articles'].length > 0">
+			<div *ngFor="let article of results['articles']" class="result">
+				<a [routerLink]="['/articles/view', article.id_article]">
+					<p class="title"> {{ article.title }} </p>
+				</a>
+			</div>
+		</ng-container>
+		<p *ngIf="results['articles'].length == 0 && !loading" class="text-center title">No se encontraron artículos</p>
+	</div>
+	<hr>
+	<div class="videos-results">
+		<h6 class="subtitle">Videos</h6>
+		<ng-container *ngIf="results['videos'].length > 0">
+			<div *ngFor="let video of results['videos']" class="result">
+				<a [routerLink]="['/videos/view', video.id_video]">
+					<p class="title"> {{ video.title }} </p>
+				</a>
+			</div>		
+		</ng-container>
+		<p *ngIf="results['videos'].length == 0 && !loading" class="text-center title">No se encontraron videos</p>
 	</div>
 </div>

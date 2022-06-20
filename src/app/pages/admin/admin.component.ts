@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GuardAccessGuard } from 'src/app/guards/guard-access.guard';
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +7,8 @@ import { GuardAccessGuard } from 'src/app/guards/guard-access.guard';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(  private _AuthGuard: GuardAccessGuard) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     

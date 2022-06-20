@@ -1,5 +1,7 @@
 <section class="categories-section">
-	<app-admin-section-header [title]="'Gestión de Categorías'"></app-admin-section-header>
+	<app-admin-section-header	[title]="'Gestión de Categorías'"
+										[addLink]="'/admin/categories/add'"
+										[listLink]="'/admin/categories'"></app-admin-section-header>
 	<div class="section-content">
 		<router-outlet></router-outlet>
 	</div>

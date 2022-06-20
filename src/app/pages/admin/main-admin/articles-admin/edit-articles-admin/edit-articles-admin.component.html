@@ -1,1 +1,80 @@
-<p>edit-articles-admin works!</p>
+<div class="edit-articles-box">
+	<h6 class="subtitle">Editar Artículo</h6>
+	<form class="edit-articles-form" [formGroup]="editArticleForm" (ngSubmit)="edit()">
+
+		<div class="image-cropper" [ngClass]="{'show':showImageCropperModal}">
+			<div class="modal-content">
+				<image-cropper	[imageChangedEvent]="imageCropperSrc"
+									[maintainAspectRatio]="true"
+									[aspectRatio]="730 / 450"
+									[imageQuality]="70"
+									[format]="'jpeg'"
+									(imageCropped)="cropImage($event)">
+				</image-cropper>
+				<button type="button" class="btn btn-second" (click)="closeCropperModal()">Guardar Ajustes</button>
+			</div>
+		</div>
+		
+		<div class="group1">
+			<div class="form-group">
+				<label for="title" class="subtitle"><p>Título del Artículo</p></label>
+				<input	type="text"
+							id="title"
+							class="form-control"
+							formControlName="title">
+			</div>
+
+			<!-- Image and Image Preview -->
+			<div class="form-group">
+				<label for="articleImage" class="subtitle"><p>Imagen del Artículo</p></label>
+				<input	type="file"
+							id="articleImage"
+							class="form-control"
+							(change)="changeImage($event)">
+			</div>
+
+			<div class="form-group">
+				<img class="imagePreview py-1" [src]="imageDestinationSrc">
+			</div>
+			<!-- End Image -->
+
+		</div>
+		<div class="group2">
+			<div class="form-group">
+				<label for="desc_short" class="subtitle"><p>Descripción Corta</p></label>
+				<textarea	id="desc_short"
+								rows="1"
+								class="form-control"
+								formControlName="desc_short"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="desc_long" class="subtitle"><p>Descripción Larga</p></label>
+				<textarea	id="desc_long"
+								rows="3"
+								class="form-control"
+								formControlName="desc_long"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="category" class="subtitle"><p>Categoría del Artículo</p></label>
+				<select	id="category"
+							class="form-control"
+							formControlName="category_id">
+					<option value="" disabled selected>Seleccionar Categoría</option>
+					<option *ngFor="let category of categories" [value]="category.id"> {{ category.name }} </option>
+				</select>
+			</div>
+		</div>
+		<div *ngIf="article.content !== undefined" class="group3 col-12">
+			<label class="subtitle"><p>Contenido</p></label>
+			<ckeditor	[editor]="editor"
+							[data]="article.content.toString()"></ckeditor>
+
+			<div class="submit-btn p-3">
+				<button class="btn btn-second">
+					Guardar Cambios
+					<div *ngIf="loading" class="spinner-border mx-2" role="status"></div>
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

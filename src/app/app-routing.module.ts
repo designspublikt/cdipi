@@ -38,15 +38,15 @@ const routes: Routes = [
   { path: 'articles', component: ArticlesComponent,
     children: [
       { path: '', component: MainArticlesComponent },
-      { path: 'view/:code', component: ViewArticleComponent },
-      { path: 'category/:name', component: CategoryArticlesComponent }
+      { path: 'view/:id', component: ViewArticleComponent },
+      { path: 'category/:id', component: CategoryArticlesComponent }
     ]
   },
   { path: 'videos', component: VideosComponent,
     children: [
       { path: '', component: MainVideosComponent },
-      { path: 'view/:code', component: ViewVideoComponent },
-      { path: 'category/:name', component: CategoryVideosComponent }
+      { path: 'view/:id', component: ViewVideoComponent },
+      { path: 'category/:id', component: CategoryVideosComponent }
     ]
   },
   { path: 'admin', component: AdminComponent,
@@ -91,7 +91,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

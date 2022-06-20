@@ -1,1 +1,82 @@
-<p>add-categories-admin works!</p>
+<div class="add-category-box">
+	<h6 class="subtitle">Agregar Categoría</h6>
+	<form class="add-category-form" [formGroup]="addCategoryForm" (ngSubmit)="add()">
+
+		<div class="image-cropper" [ngClass]="{'show':showImageCropperModal}">
+			<div class="modal-content">
+				<image-cropper	[imageChangedEvent]="imageCropperSrc"
+									[maintainAspectRatio]="true"
+									[aspectRatio]="1 / 1"
+									[resizeToWidth]="100"
+									[imageQuality]="90"
+									[format]="'png'"
+									(imageCropped)="cropImage($event)">
+				</image-cropper>
+				<button type="button" class="btn btn-second" (click)="closeCropperModal()">Guardar Ajustes</button>
+			</div>
+		</div>
+
+		<div class="form-group col-12 col-sm-6">
+			<label for="categoryName" class="subtitle"><p>Nombre Categoría</p></label>
+			<input	type="text"
+						class="form-control"
+						id="categoryName"
+						formControlName="categoryName">
+		</div>
+		<div class="form-group col-12 col-sm-5">
+			<label for="categoryIcon" class="subtitle"><p>Ícono</p></label>
+			<input	type="file"
+						class="form-control"
+						id="categoryIcon"
+						(change)="changeImage($event)">
+		</div>
+		<div class="form-group col-12 col-sm-1 p-0 text-center">
+			<label class="subtitle"><p>&nbsp;</p></label>
+			<img class="my-2" [src]="imageDestinationSrc" width="40px" height="40px" [ngStyle]="{'background-color':color}">
+		</div>
+		
+		<div class="form-group col-12 col-sm-4">
+			<label for="categoryColor" class="subtitle"><p>Color Categoría</p></label>
+			<input	[(colorPicker)]="color"
+						[style.background]="color"
+						[cpOKButton]="true"
+						[cpOKButtonText]="'Aceptar'"
+						[cpOKButtonClass]="'btn btn-second w-100 mx-auto'"
+						[cpOutputFormat]="'hex'"
+						[cpAlphaChannel]="'disabled'"
+						(colorPickerSelect)="setColor($event)"
+						[value]="color"
+						type="text"
+						class="form-control"
+						id="categoryColor"
+						formControlName="categoryColor">
+		</div>
+
+		<div class="form-group col-12 col-sm-4">
+			<label for="categoryType" class="subtitle"><p>Tipo Categoría</p></label>
+			<select	id="categoryType"
+						class="form-control"
+						formControlName="categoryType">
+				<option value="" disabled selected>Seleccionar Tipo</option>
+				<option value="articles">Articulos</option>
+				<option value="videos">Videos</option>
+			</select>
+		</div>
+		<div class="form-group col-12 col-sm-4">
+			<label for="categoryVisible" class="subtitle"><p>Visible</p></label>
+			<select	id="categoryVisible"
+						class="form-control"
+						formControlName="categoryVisible">
+				<option value="" disabled selected>Visible / Oculto</option>
+				<option value="1">Visible</option>
+				<option value="0">Oculto</option>
+			</select>
+		</div>
+		<div class="form-group col-12 col-sm-6 py-4">
+			<button class="btn btn-second add-category-btn w-100">
+				Crear Categoría
+				<div *ngIf="loading" class="spinner-border mx-2" role="status"></div>
+			</button>
+		</div>
+	</form>
+</div>

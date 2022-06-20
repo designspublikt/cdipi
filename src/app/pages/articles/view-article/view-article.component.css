@@ -28,7 +28,7 @@
 		grid-column: 2 / 3;
 		max-height: 220vh;
 		overflow-y: scroll;
-		padding-right: .7rem;
+		padding: 0 .7rem;
 	}
 	@media screen and (max-width: 768px) {
 		.view-article .other-articles {

@@ -1,1 +1,36 @@
-<p>list-videos-admin works!</p>
+<div class="list-videos table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Título</th>
+				<th>Categoría</th>
+				<th>Descripción Corta</th>
+				<th>Descripción Larga</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let video of videos">
+				<td class="title-td"> {{ video.title }} </td>
+				<td class="category-td"> {{ video.category_name }} </td>
+				<td class="short-desc-td"> {{ video.desc_short }} </td>
+				<td class="long-desc-td"> {{ video.desc_long }} </td>
+				<td class="actions-td">
+					<div class="actions">
+						<div class="icon edit" [routerLink]="['/admin/videos/edit', video.id_video]">
+							<i class="fa-solid fa-pen"></i>
+						</div>
+						<div class="icon view" [routerLink]="['/videos/view', video.id_video]">
+							<i class="fa-solid fa-eye"></i>
+						</div>
+						<div class="icon delete" (click)="deleteVideo(video.id_video)">
+							<i class="fa-solid fa-trash-can"></i>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<app-spinner *ngIf="loadingVideos" [loadingMessage]="'Cargando Videos'"></app-spinner>
+	<h6 class="subtitle" *ngIf="videos.length == 0">No hay videos para mostrar</h6>
+</div>

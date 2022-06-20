@@ -16,9 +16,15 @@
 	.videos-library .video-box:hover {
 		background-color: #00000015;
 	}
-		.video-box .video-title .title {
-			padding: 0;
+		.video-box .video-title {
+			height: 80px;
+			display: flex;
+			align-items: center;
+			text-align: center;
 		}
+			.video-box .video-title .title {
+				padding: 0;
+			}
 
 		.video-box .category-info {
 			display: flex;

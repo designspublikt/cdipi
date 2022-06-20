@@ -1,7 +1,7 @@
-<nav class="categories-nav">
-	<div class="categories container scroll">
+<nav class="categories-nav scroll">
+	<div class="categories container">
 		<div *ngFor="let categoryBar of categoriesBar" class="category" [ngStyle]="{'display': categoryBar.type != 'general' ? 'inline-block' : 'none'}">
-			<a [routerLink]="['/' + categoryBar.type + '/category', categoryBar.link]">
+			<a [routerLink]="['/' + categoryBar.type + '/category', categoryBar.id]">
 				{{ categoryBar.name }}
 			</a>
 		</div>		

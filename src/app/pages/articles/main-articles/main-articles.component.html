@@ -1,121 +1,60 @@
-<div class="all-articles">
+<app-spinner *ngIf="articles.length == 0" [loadingMessage]="'Cargando Articulos'"></app-spinner>
+
+<div class="all-articles" *ngIf="articles.length > 0">
 	<app-category-title	[categoryName]="'Todos los Articulos'"
 								[colorHex]="'#2ca9aa'"></app-category-title>
 	<div class="last-articles-box">
-		<div class="last-article-main" [routerLink]="['/articles/view/1']">
-			<img src="https://picsum.photos/id/100/500/300" height="100%" alt="Article Image">
+		<div class="last-article-main" [routerLink]="['/articles/view', articles[0].id_article]">
+			<img [src]="'assets/img/articles/' + articles[0].image" height="100%" alt="Article Image">
 			<div class="art-info">
-				<p class="title">Titulo del Articulo</p>
+				<p class="title"> {{ articles[0].title }} </p>
 				<div class="category-info">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
+					<img [src]="'assets/img/categories/' + articles[0].category_icon" alt="Category Icon">
+					<p class="title"> {{ articles[0].category_name }} </p>
 				</div>
-				<p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dicta aspernatur doloribus distinctio a cumque nulla perferendis, eos, consectetur</p>
+				<p class="art-description"> {{ articles[0].desc_long }} </p>
 			</div>
 		</div>
-		<div class="last-article-up" [routerLink]="['/articles/view/1']">
-			<img src="https://picsum.photos/id/101/500/300" height="100%" alt="Article Image">
+		<div class="last-article-up" [routerLink]="['/articles/view', articles[1].id_article]">
+			<img [src]="'assets/img/articles/' + articles[1].image" height="100%" alt="Article Image">
 			<div class="art-info">
-				<p class="title">Titulo del Articulo</p>
+				<p class="title"> {{ articles[1].title }} </p>
 				<div class="category-info">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
+					<img [src]="'assets/img/categories/' + articles[1].category_icon " alt="Category Icon">
+					<p class="title"> {{ articles[1].title }} </p>
 				</div>
-				<p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dicta aspernatur doloribus distinctio a cumque nulla perferendis, eos, consectetur</p>
+				<p class="art-description"> {{ articles[1].desc_long }} </p>
 			</div>
 		</div>		
-		<div class="last-article-down" [routerLink]="['/articles/view/1']">
-			<img src="https://picsum.photos/id/102/500/300" height="100%" alt="Article Image">
+		<div class="last-article-down" [routerLink]="['/articles/view', articles[2].id_article]">
+			<img [src]="'assets/img/articles/' + articles[2].image " height="100%" alt="Article Image">
 			<div class="art-info">
-				<p class="title">Titulo del Articulo</p>
+				<p class="title"> {{ articles[2].title }} </p>
 				<div class="category-info">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
+					<img [src]="'assets/img/categories/' + articles[2].category_icon " alt="Category Icon">
+					<p class="title"> {{ articles[2].category_name }} </p>
 				</div>
-				<p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dicta aspernatur doloribus distinctio a cumque nulla perferendis, eos, consectetur</p>
+				<p class="art-description"> {{ articles[2].desc_long }} </p>
 			</div>
 		</div>
 	</div>
 
 
 	<div class="other-articles">
-		<div class="article-box" [routerLink]="['/articles/view', 1]">
-			<div class="other-art-img">
-				<img src="https://picsum.photos/id/103/500/300" width="100%" alt="Article Image">
-			</div>
-			<div class="other-art-info">
-				<p class="title">Titulo del Articulo</p>
-				<div class="other-category-info" style="background-color: cadetblue;">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
+		<div *ngFor="let article of articles; let i = index;" class="article-box" [routerLink]="['/articles/view', article.id_article]">
+			<ng-container *ngIf="i > 2">
+				<div class="other-art-img">
+					<img [src]="'assets/img/articles/' + article.image" width="100%" alt="Article Image">
 				</div>
-				<p class="art-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat beatae corporis ut recusandae, aut odit, omnis, temporibus amet voluptates ducimus laborum! Hic pariatur voluptates ab! Laborum maiores repudiandae aspernatur facilis?</p>
-			</div>
-		</div>
-		<div class="article-box" [routerLink]="['/articles/view', 1]">
-			<div class="other-art-img">
-				<img src="https://picsum.photos/id/104/500/300" width="100%" alt="Article Image">
-			</div>
-			<div class="other-art-info">
-				<p class="title">Titulo del Articulo</p>
-				<div class="other-category-info" style="background-color: cadetblue;">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
+				<div class="other-art-info">
+					<p class="title"> {{ article.title }} </p>
+					<div class="other-category-info" [style]="'background-color:' + article.category_color">
+						<img [src]="'assets/img/categories/' + article.category_icon" alt="Category Icon">
+						<p class="title"> {{ article.category_name }} </p>
+					</div>
+					<p class="art-description"> {{ article.desc_long }} </p>
 				</div>
-				<p class="art-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat beatae corporis ut recusandae, aut odit, omnis, temporibus amet voluptates ducimus laborum! Hic pariatur voluptates ab! Laborum maiores repudiandae aspernatur facilis?</p>
-			</div>
-		</div>
-		<div class="article-box" [routerLink]="['/articles/view', 1]">
-			<div class="other-art-img">
-				<img src="https://picsum.photos/id/106/500/300" width="100%" alt="Article Image">
-			</div>
-			<div class="other-art-info">
-				<p class="title">Titulo del Articulo</p>
-				<div class="other-category-info" style="background-color: cadetblue;">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
-				</div>
-				<p class="art-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat beatae corporis ut recusandae, aut odit, omnis, temporibus amet voluptates ducimus laborum! Hic pariatur voluptates ab! Laborum maiores repudiandae aspernatur facilis?</p>
-			</div>
-		</div>
-		<div class="article-box" [routerLink]="['/articles/view', 1]">
-			<div class="other-art-img">
-				<img src="https://picsum.photos/id/107/500/300" width="100%" alt="Article Image">
-			</div>
-			<div class="other-art-info">
-				<p class="title">Titulo del Articulo</p>
-				<div class="other-category-info" style="background-color: cadetblue;">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
-				</div>
-				<p class="art-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat beatae corporis ut recusandae, aut odit, omnis, temporibus amet voluptates ducimus laborum! Hic pariatur voluptates ab! Laborum maiores repudiandae aspernatur facilis?</p>
-			</div>
-		</div>
-		<div class="article-box" [routerLink]="['/articles/view', 1]">
-			<div class="other-art-img">
-				<img src="https://picsum.photos/id/108/500/300" width="100%" alt="Article Image">
-			</div>
-			<div class="other-art-info">
-				<p class="title">Titulo del Articulo</p>
-				<div class="other-category-info" style="background-color: cadetblue;">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
-				</div>
-				<p class="art-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat beatae corporis ut recusandae, aut odit, omnis, temporibus amet voluptates ducimus laborum! Hic pariatur voluptates ab! Laborum maiores repudiandae aspernatur facilis?</p>
-			</div>
-		</div>
-		<div class="article-box" [routerLink]="['/articles/view', 1]">
-			<div class="other-art-img">
-				<img src="https://picsum.photos/id/109/500/300" width="100%" alt="Article Image">
-			</div>
-			<div class="other-art-info">
-				<p class="title">Titulo del Articulo</p>
-				<div class="other-category-info" style="background-color: cadetblue;">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<p class="title">Nombre Categoría</p>
-				</div>
-				<p class="art-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat beatae corporis ut recusandae, aut odit, omnis, temporibus amet voluptates ducimus laborum! Hic pariatur voluptates ab! Laborum maiores repudiandae aspernatur facilis?</p>
-			</div>
+			</ng-container>
 		</div>
 	</div>
 </div>

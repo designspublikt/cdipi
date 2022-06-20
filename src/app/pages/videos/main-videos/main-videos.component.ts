@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/interfaces/category';
+import { FullVideo } from 'src/app/interfaces/video';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { VideosService } from 'src/app/services/videos.service';
 
 @Component({
   selector: 'app-main-videos',
@@ -9,19 +10,32 @@ import { CategoriesService } from 'src/app/services/categories.service';
 })
 export class MainVideosComponent implements OnInit {
 
-  videos: any[] = [];
-  categories: Category[] = [];
+  videos: FullVideo[] = [];
 
-  constructor(  private _CategoriesServices: CategoriesService) {
-    this.videos = Array(12).fill('').map((x,i) => i);
+  constructor(  private _CategoriesServices: CategoriesService,
+                private _VideosService: VideosService) {
+    
   }
 
-  ngOnInit(): void {
-    this.getCategories();
+  async ngOnInit() {
+    await this.getVideos();
   }
 
-  getCategories() {
-    this.categories = this._CategoriesServices.getAll();
+
+
+  async getVideos() {
+    let videosP = new Promise((resolve, reject) => {
+      this._VideosService.getAllDesc()
+        .subscribe(videosRes => {
+          if(!videosRes.status) reject(videosRes);
+
+          videosRes.response.map((video: FullVideo) => this.videos.push(video));
+          resolve(videosRes.status);
+        });
+    });
+
+    let result = await videosP;
+    return result;
   }
 
 }

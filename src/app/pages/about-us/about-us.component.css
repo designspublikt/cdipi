@@ -7,6 +7,12 @@
 		align-items: center;
 		gap: 1rem;
 	}
+	@media screen and (max-width: 768px) {
+		.about-us-section .about-us-info {
+			flex-wrap: wrap;
+			padding: 1rem;
+		}
+	}
 		.about-us-info .text1,
 		.about-us-info .text2 {
 			text-align: justify;

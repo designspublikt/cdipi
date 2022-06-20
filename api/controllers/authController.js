@@ -5,6 +5,7 @@ let auth = new Auth();
 let promiseRes;
 
 exports.login = (req, res) => {
+
 	auth.username = req.body.username;
 	auth.password = req.body.password;
 
@@ -37,8 +38,7 @@ exports.login = (req, res) => {
 					user: {
 						id: userResponse.id,
 						firstname: userResponse.firstname,
-						lastname: userResponse.lastname,
-						role: userResponse.rol
+						lastname: userResponse.lastname
 					}
 				});
 			});

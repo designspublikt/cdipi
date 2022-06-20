@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/interfaces/category';
 import { CategoriesService } from 'src/app/services/categories.service';
 
@@ -12,19 +13,37 @@ export class CategoriesBarComponent implements OnInit {
   @Input() type: string = '';
   categoriesBar: Category[] = [];
 
-  constructor(  private _CategoriesService: CategoriesService) { }
+  constructor(  private _CategoriesService: CategoriesService,
+                private _Router: Router,
+                private _ActivatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.getCategories(this.type);
+  async ngOnInit() {
+    await this.getCategoriesByType(this.type);
   }
 
-  getCategories(type: string) {
-    if(type == '') {
-      this.categoriesBar = this._CategoriesService.getAll();
-      return;
-    }
+  async getCategoriesByType(type: string) {
+    let categoriesP = new Promise((resolve, reject) => {
+      if(type == '') {
+        this._CategoriesService.getAll()
+          .subscribe(categoriesRes => {
+            if(!categoriesRes.status) reject(categoriesRes);
 
-    this.categoriesBar = this._CategoriesService.getByType(type);
+            categoriesRes.response.map((category: Category) => this.categoriesBar.push(category));
+            resolve(categoriesRes.status);
+          });
+      }
+  
+      this._CategoriesService.getByType(type) 
+        .subscribe(categoriesRes => {
+          if(!categoriesRes.status) reject(categoriesRes);
+
+          categoriesRes.response.map((category: Category) => this.categoriesBar.push(category));
+          resolve(categoriesRes.status);
+        });
+    });
+
+    let result = await categoriesP;
+    return result;
   }
 
 }

@@ -9,6 +9,7 @@ export class CategoryTitleComponent implements OnInit {
 
   @Input() categoryName = '';
   @Input() colorHex = '';
+  @Input() icon = '';
 
   constructor() { }
 

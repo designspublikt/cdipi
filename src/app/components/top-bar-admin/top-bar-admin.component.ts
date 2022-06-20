@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar-admin',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(  private _Router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    localStorage.clear();
+    this._Router.navigate(['/admin/login']);
   }
 
 }

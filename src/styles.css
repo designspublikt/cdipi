@@ -22,7 +22,6 @@
 		}
 		*, *:before, *:after {
 			box-sizing: inherit;
-			z-index: 0;
 		}
 		body {
 			font-size: 62.5%;
@@ -167,6 +166,7 @@
 			}
 		.subtitle {
 			text-transform: capitalize;
+			font-weight: bold;
 		}
 
 		.box {
@@ -265,7 +265,6 @@
 					right: 0;
 					bottom: 0;
 					width: 100%;
-					z-index: -1;
 			}
 			.overlay-light-circle::before,
 			.overlay-normal-circle::before,
@@ -342,11 +341,11 @@
 			/*  */
 				.btn-second {
 					background-color: var(--second-color);
-					color: var(--fourth-color);
+					color: #fff;
 				}
 				.btn-second:hover {
 					background-color: var(--fourth-color);
-					color: #fff;
+					color: var(--second-color);
 				}
 
 				.btn-outline-second {

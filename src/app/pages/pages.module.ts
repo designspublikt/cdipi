@@ -1,10 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 import { SwiperModule } from 'swiper/angular';
 import { ComponentsModule } from '../components/components.module';
+import { PipesModule } from '../pipes/pipes.module';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
@@ -82,8 +90,17 @@ import { ViewVideoComponent } from './videos/view-video/view-video.component';
     SwiperModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImageCropperModule,
+    CKEditorModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    ColorPickerModule,
+    PipesModule,
+    NgxSpinnerModule,
+    NgxCaptchaModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [
     HomeComponent,
     NotfoundComponent,

@@ -19,3 +19,21 @@
 		.actions-td {
 			width: 10%;
 		}
+			.actions {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+				.actions .icon {
+					cursor: pointer;
+					font-size: 1rem;
+				}
+					.icon.edit i {
+						color: orange;
+					}
+					.icon.view i {
+						color: cornflowerblue;
+					}
+					.icon.delete i {
+						color: red;
+					}

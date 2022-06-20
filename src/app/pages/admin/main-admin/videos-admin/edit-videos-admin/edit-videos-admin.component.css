@@ -1,0 +1,27 @@
+.edit-video-box {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 1rem 0 0 0;
+}
+	.edit-video-form {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	@media screen and (max-width: 768px) {
+		.edit-video-form {
+			padding: 1rem;
+		}
+	}
+		.edit-video-form .form-group {
+			padding: 0 .2rem;
+		}
+		.edit-video-form * {
+			text-align: center;
+		}
+
+
+		.edit-video-form .edit-video-btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}

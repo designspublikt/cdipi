@@ -10,15 +10,27 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="title-td">Aquí el título del artículo</td>
-				<td class="category-td">Categoría Artículo</td>
-				<td class="short-desc-td">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptatibus facilis</td>
-				<td class="long-desc-td">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fugit veniam corporis voluptas cupiditate omnis, autem, sed numquam facilis atque est animi optio vel magni, ipsum alias illum aliquid facere?</td>
+			<tr *ngFor="let article of articles">
+				<td class="title-td"> {{ article.title }} </td>
+				<td class="category-td"> {{ article.category_name }} </td>
+				<td class="short-desc-td"> {{ article.desc_short }} </td>
+				<td class="long-desc-td"> {{ article.desc_long }} </td>
 				<td class="actions-td">
-					<app-actions-list-admin></app-actions-list-admin>
+					<div class="actions">
+						<div class="icon edit" [routerLink]="['/admin/articles/edit', article.id_article]">
+							<i class="fa-solid fa-pen"></i>
+						</div>
+						<div class="icon view" [routerLink]="['/articles/view', article.id_article]">
+							<i class="fa-solid fa-eye"></i>
+						</div>
+						<div class="icon delete" (click)="deleteArticle(article.id_article)">
+							<i class="fa-solid fa-trash-can"></i>
+						</div>
+					</div>
 				</td>
 			</tr>
 		</tbody>
 	</table>
+	<app-spinner *ngIf="loadingArticles" [loadingMessage]="'Cargando Artículos'"></app-spinner>
+	<h6 class="subtitle" *ngIf="articles.length == 0">No hay artículos para mostrar</h6>
 </div>

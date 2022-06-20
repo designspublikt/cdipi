@@ -1,47 +1,54 @@
+<ngx-spinner	type="ball-fall"
+					[size]="'medium'"
+					[bdColor]="'rgba(43, 52, 131, 0.8)'"
+					[showSpinner]="showPreloader">
+	<p style="color:white">Cargando Contenido</p>
+</ngx-spinner>
+
 <header>
 	<app-full-nav-bar></app-full-nav-bar>
 	<div class="header-content container">
+
 		<div	class="first content-box "
-				style="background-image: url('assets/img/articles/1.jpg');"
-				[routerLink]="['/articles/view', 1]">
-
+				[style]="'background-image: url(assets/img/articles/' + lastArticles[0]?.image + ');'"
+				[routerLink]="['/articles/view', lastArticles[0]?.id_article]">
 			<div class="article-info">
 				<div class="article-title">
-					<p class="title">Título del Artículo</p>
+					<p class="title"> {{ lastArticles[0]?.title }} </p>
 				</div>
 				<div class="article-description no-mobile">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta hic natus labore necessitatibus reiciendis quod odio adipisci aut animi</p>
+					<p> {{ lastArticles[0]?.desc_long }} </p>
 				</div>
 				<div class="article-category">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<label>Nombre de Categoría</label>
+					<img [src]="'assets/img/categories/' + lastArticles[0]?.category_icon " alt="Category Icon">
+					<label> {{ lastArticles[0]?.category_name }} </label>
 				</div>
 			</div>
+		</div>
 
+		<div	class="second content-box" [ngStyle]="{'background-image':'url(' + lastVideos[1]?.image + ')'}" [routerLink]="['/videos/view', lastVideos[1]?.id_video]">
+			<!-- Youtube Video -->
 		</div>
-		<div	class="second content-box">
-			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/RbZ9THKCqfM" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>
+
 		<div	class="third content-box"
-				style="background-image: url('assets/img/articles/2.jpg');"
-				[routerLink]="['/articles/view', 1]">
-
+				[style]="'background-image: url(assets/img/articles/' + lastArticles[1]?.image + ');'"
+				[routerLink]="['/articles/view', lastArticles[1]?.id_article]">
 			<div class="article-info">
 				<div class="article-title">
-					<p class="title">Título del Artículo</p>
+					<p class="title"> {{ lastArticles[1]?.title }} </p>
 				</div>
 				<div class="article-description no-mobile">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+					<p> {{ lastArticles[1]?.desc_short }} </p>
 				</div>
 				<div class="article-category">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
-					<label>Nombre de Categoría</label>
+					<img [src]="'assets/img/categories/' + lastArticles[1]?.category_icon " alt="Category Icon">
+					<label> {{ lastArticles[1]?.category_name }} </label>
 				</div>
 			</div>
-
 		</div>
-		<div	class="fourth content-box">
-			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/QyhwSYhX09s" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+		<div	class="fourth content-box" [ngStyle]="{'background-image':'url(' + lastVideos[0]?.image + ')'}" [routerLink]="['/videos/view', lastVideos[0]?.id_video]">
+			<!-- Youtube Video -->
 		</div>
 	</div>
 </header>
@@ -49,28 +56,22 @@
 <section class="first-section container">
 	<!-- Main Articles -->
 	<div class="category articles main">
-		<app-category-title	[categoryName]="'profesionales'"
-									[colorHex]="'#d93637'"></app-category-title>
+		<app-category-title	*ngIf="articlesCategories.length > 0"
+									[categoryName]="articlesCategories[0].name"
+									[colorHex]="articlesCategories[0].color"
+									[icon]="articlesCategories[0].icon"></app-category-title>
 		<div class="main-articles">
-			<div class="article" [routerLink]="['/articles/view', 1]">
-				<div class="art-image">
-					<img src="assets/img/articles/3.jpg" alt="Image Article">
-				</div>
-				<div class="art-content">
-					<p class="title"><strong>Título Artículo</strong></p>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda accusantium doloremque aliquam provident enim amet</p>
-					<a href="#" class="link">Leer Más...</a>
-				</div>
-			</div>
-			<div class="article" [routerLink]="['/articles/view', 1]">
-				<div class="art-image">
-					<img src="assets/img/articles/4.jpg" alt="Image Article">
-				</div>
-				<div class="art-content">
-					<p class="title"><strong>Título Artículo</strong></p>
-					<p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, asperiores maiores, debitis rem neque porro iste sunt id ea tempore ad quos nisi explicabo</p>
-					<a href="#" class="link">Leer Más...</a>
-				</div>
+			<div *ngFor="let article of articlesByCategory1; let i = index;" class="article col-12 col-sm-6" [ngClass]="{'d-none': i > 1}" [routerLink]="['/articles/view', article.id_article]">
+				<ng-container *ngIf="i <= 1">
+					<div class="art-image">
+						<img [src]="'assets/img/articles/' + article.image" alt="Image Article">
+					</div>
+					<div class="art-content">
+						<p class="title"><strong> {{ article.title }} </strong></p>
+						<p class="description"> {{ article.desc_long }} </p>
+						<a [routerLink]="['/articles/view', article.id_article]" class="link">Leer Más...</a>
+					</div>
+				</ng-container>
 			</div>
 		</div>
 	</div>
@@ -78,42 +79,24 @@
 	<!-- Secondary Articles -->
 	<div class="category articles secondary">
 		<div class="other-articles left">
-			<div class="article" [routerLink]="['/articles/view', 1]">
+			<div *ngFor="let article of articlesByCategory1; let i = index;" class="article" [ngClass]="{'d-none' : i < 2 || i > 3}" [routerLink]="['/articles/view', article.id_article]">
 				<div class="art-img col-12 col-sm-6">
-					<img src="assets/img/articles/1.jpg" alt="Image Article">
+					<img [src]="'assets/img/articles/' + article.image" alt="Image Article">
 				</div>
 				<div class="art-content col-12 col-sm-6">
-					<p class="title">Título Artículo</p>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
-				</div>
-			</div>
-			<div class="article" [routerLink]="['/articles/view', 1]">
-				<div class="art-img col-12 col-sm-6">
-					<img src="assets/img/articles/2.jpg" alt="Image Article">
-				</div>
-				<div class="art-content col-12 col-sm-6">
-					<p class="title">Título Artículo</p>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
+					<p class="title"> {{ article.title }} </p>
+					<p class="description"> {{ article.desc_long }} </p>
 				</div>
 			</div>
 		</div>
 		<div class="other-articles right">
-			<div class="article" [routerLink]="['/articles/view', 1]">
+			<div *ngFor="let article of articlesByCategory1; let i = index;" class="article" [ngClass]="{'d-none' : i < 4 || i > 6}" [routerLink]="['/articles/view', article.id_article]">
 				<div class="art-img col-12 col-sm-6">
-					<img src="assets/img/articles/3.jpg" alt="Image Article">
+					<img [src]="'assets/img/articles/' + article.image" alt="Image Article">
 				</div>
 				<div class="art-content col-12 col-sm-6">
-					<p class="title">Título Artículo</p>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
-				</div>
-			</div>
-			<div class="article" [routerLink]="['/articles/view', 1]">
-				<div class="art-img col-12 col-sm-6">
-					<img src="assets/img/articles/4.jpg" alt="Image Article">
-				</div>
-				<div class="art-content col-12 col-sm-6">
-					<p class="title">Título Artículo</p>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore iusto minima nihil eum ut enim perferendis vero</p>
+					<p class="title"> {{ article.title }} </p>
+					<p class="description"> {{ article.desc_long }} </p>
 				</div>
 			</div>
 		</div>
@@ -124,45 +107,22 @@
 
 	<!-- Videos -->
 	<div class="category videos">
-		<app-category-title	[categoryName]="'Inmigracion'"
-									[colorHex]="'#bba4ce'"></app-category-title>
+		<app-category-title	*ngIf="videosCategories.length > 0"
+									[categoryName]="videosCategories[0].name"
+									[colorHex]="videosCategories[0].color"
+									[icon]="videosCategories[0].icon"></app-category-title>
 
 		<div class="video-list">
-			<div class="video" [routerLink]="['/videos/view', 1]">
-				<div class="thumbnail col-5 col-sm-6">
-					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/JQ0ydtyQpD4" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				<div class="vid-content col-7 col-sm-6">
-					<p class="title">Título de Video</p>
-					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae inventore, vero tempora voluptatum facilis consequuntur alias hic vel, veritatis pariatur</p>
-				</div>
-			</div>
-			<div class="video" [routerLink]="['/videos/view', 1]">
-				<div class="thumbnail col-5 col-sm-6">
-					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/1AYCdgue2yU" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				<div class="vid-content col-7 col-sm-6">
-					<p class="title">Título de Video</p>
-					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur illum minima numquam ad quae fugit dicta dolore alias, eaque obcaecati quidem debitis quo asperiores non aliquam sint consectetur, cupiditate animi?</p>
-				</div>
-			</div>
-			<div class="video" [routerLink]="['/videos/view', 1]">
-				<div class="thumbnail col-5 col-sm-6">
-					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dTJ6HEogsyI" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				<div class="vid-content col-7 col-sm-6">
-					<p class="title">Título de Video</p>
-					<p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem reprehenderit, nihil sunt minima explicabo labore nemo!</p>
-				</div>
-			</div>
-			<div class="video" [routerLink]="['/videos/view', 1]">
-				<div class="thumbnail col-5 col-sm-6">
-					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/BCU1eeBbjHY" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				<div class="vid-content col-7 col-sm-6">
-					<p class="title">Título de Video</p>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi pariatur rerum quibusdam optio, placeat reiciendis quia assumenda porro accusamus delectus dolore, nihil quis magni amet</p>
-				</div>
+			<div *ngFor="let video of videosByCategory1; let i = index;" class="video" [routerLink]="['/videos/view', video.id_video]">
+				<ng-container *ngIf="i <= 3">
+					<div class="thumbnail col-5 col-sm-6" [ngStyle]="{'background-image': 'url(' + video.image + ')', 'background-size':'cover', 'background-position':'center', 'height':'150px'}">
+						<!-- Video Image -->
+					</div>
+					<div class="vid-content col-7 col-sm-6">
+						<p class="title"> {{ video.title }} </p>
+						<p class="description"> {{ video.desc_long }} </p>
+					</div>
+				</ng-container>
 			</div>
 		</div>
 
@@ -236,8 +196,8 @@
 			</ng-template>
 		</swiper>
 		<div class="banner-vertical overlay-color">
-			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vero expedita voluptatem amet quidem recusandae odio quaerat tenetur</p>
-			<button class="btn btn-outline-first">¿Quienes Somos?</button>
+			<p class="text" style="z-index: 1">CDIPI tiene como objetivo ayudar al desarrollo de habilidades prácticas, a través de la experiencia y la resolución de problemas concretos en los negocios</p>
+			<button class="btn btn-outline-first" style="z-index: 1;" [routerLink]="'aboutus'">¿Quienes Somos?</button>
 		</div>
 		<div class="banner-horizontal">
 			<div class="services-box">
@@ -273,43 +233,51 @@
 									[colorHex]="'#202020'"></app-category-title>
 
 		<div class="contact-form-box">
-			<form class="contact-form">
+			<form class="contact-form" [formGroup]="contactForm" (ngSubmit)="sendMail()">
 				<div class="form-group">
 					<input	class="form-control"
 								type="text"
-								placeholder="Nombre Completo">
+								placeholder="Nombre Completo"
+								formControlName="fullname">
 				</div>
 				<div class="form-group">
 					<input	class="form-control"
 								type="text"
-								placeholder="Correo Electrónico">
+								placeholder="Correo Electrónico"
+								formControlName="email">
 				</div>
 				<div class="form-group">
 					<label>Consulta</label>
 					<textarea	class="form-control"
-									rows="3"></textarea>
+									rows="3"
+									formControlName="message"></textarea>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-first w-100">Enviar</button>
+					<button class="btn btn-first send-btn w-100">
+						Enviar
+						<div *ngIf="sendingMail" class="spinner-border mx-2" role="status"></div>
+					</button>
 				</div>
+				<ngx-invisible-recaptcha	#reCaptcha
+													[siteKey]="sk"></ngx-invisible-recaptcha>
 			</form>
 		</div>
 
 		<div class="social-networks">
 			<div class="icon">
-				<i class="fa-brands fa-facebook-f fa-2x"></i>
+				<a href="https://www.facebook.com/Innovacion2.0.Franklin.Heiligs" target="_blank">
+					<i class="fa-brands fa-facebook-f fa-2x"></i>
+				</a>
 			</div>
 			<div class="icon">
-				<i class="fa-brands fa-instagram fa-2x"></i>
+				<a href="https://www.instagram.com/innovation2.0.franklin.heiligs/" target="_blank">
+					<i class="fa-brands fa-instagram fa-2x"></i>
+				</a>
 			</div>
 			<div class="icon">
-				<i class="fa-brands fa-whatsapp fa-2x"></i>
-			</div>
-			<div class="icon">
-				<i class="fa-brands fa-twitter fa-2x"></i>
-			</div>
-			<div class="icon">
-				<i class="fa-brands fa-youtube fa-2x"></i>
+				<a href="" target="_blank">
+					<i class="fa-brands fa-whatsapp fa-2x"></i>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -317,72 +285,50 @@
 
 <section class="third-section container">
 	<div class="articles">
-		<app-category-title	[categoryName]="'Empleos'"
-									[colorHex]="'#654315'"></app-category-title>
+		<app-category-title	*ngIf="articlesCategories.length > 0"
+									[categoryName]="articlesCategories[1].name"
+									[colorHex]="articlesCategories[1].color"
+									[icon]="articlesCategories[1].icon"></app-category-title>
 
-		<div class="articles-content">
-			<div class="main-article" [routerLink]="['/articles/view', 1]">
+		<div class="articles-content" *ngIf="articlesByCategory2.length > 0">
+			<div class="main-article" [routerLink]="['/articles/view', articlesByCategory2[0].id_article]">
 				<div class="image-article">
-					<img src="assets/img/articles/5.jpg" alt="Image Article">
+					<img [src]="'assets/img/articles/' + articlesByCategory2[0].image" alt="Image Article">
 				</div>
 				<div class="content-article">
-					<p class="title p-0">Título del Artículo</p>
-					<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsum vel, harum error eveniet incidunt sint officiis adipisci voluptatum, maxime hic sequi, delectus commodi. Omnis maxime eaque error veniam voluptates?</p>
+					<p class="title p-0"> {{ articlesByCategory2[0].title }} </p>
+					<p class="description"> {{ articlesByCategory2[0].desc_long }} </p>
 				</div>
 			</div>
 			<div class="other-articles">
-				<div class="article" [routerLink]="['/articles/view', 1]">
+				<div *ngFor="let article of articlesByCategory2; let i = index;" class="article" [ngClass]="{'d-none' : i < 1}" [routerLink]="['/articles/view', article.id_article]">
 					<div class="article-image col-5">
-						<img src="assets/img/articles/6.jpg" alt="Image Article">
+						<img [src]="'assets/img/articles/' + article.image" alt="Image Article">
 					</div>
 					<div class="article-content col-7">
-						<p class="title p-0">Título del Artículo</p>
-						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-					</div>
-				</div>
-				<div class="article" [routerLink]="['/articles/view', 1]">
-					<div class="article-image col-5">
-						<img src="assets/img/articles/7.jpg" alt="Image Article">
-					</div>
-					<div class="article-content col-7">
-						<p class="title p-0">Título del Artículo</p>
-						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-					</div>
-				</div>
-				<div class="article" [routerLink]="['/articles/view', 1]">
-					<div class="article-image col-5">
-						<img src="assets/img/articles/8.jpg" alt="Image Article">
-					</div>
-					<div class="article-content col-7">
-						<p class="title p-0">Título del Artículo</p>
-						<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+						<p class="title p-0"> {{ article.title }} </p>
+						<p class="description"> {{ article.desc_short }} </p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="videos">
-		<app-category-title	[categoryName]="'Innovación'"
-									[colorHex]="'#b75c2f'"></app-category-title>
+		<app-category-title	*ngIf="videosCategories.length > 0"
+									[categoryName]="videosCategories[1].name"
+									[colorHex]="videosCategories[1].color"
+									[icon]="videosCategories[1].icon"></app-category-title>
 		
 		<div class="videos-content">
-			<div class="video">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/d61HJ2tIopE" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-			</div>
-			<div class="video">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/hwyV7EGLwqI" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-			</div>
-			<div class="video">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/k_RtS3sag1Y" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-			</div>
-			<div class="video">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/35Ce1Q2CG6M" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-			</div>
-			<div class="video">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/c7FMfQJw6Jk" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-			</div>
-			<div class="video">
-				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/zuf4NnRym0Q" title="Nombre del Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
+			<div *ngFor="let video of videosByCategory2; let i = index;" class="video" [routerLink]="['/videos/view', video.id_video]">
+				<ng-container *ngIf="i <= 5">
+					<div class="video-box" [ngStyle]="{'background-image':'url(' + video.image +')', 'background-size':'cover', 'background-position':'center', 'min-height':'110px'}">
+						<!-- Video Image -->
+					</div>
+					<div class="video-title">
+						<small class="title"> {{ video.title }} </small>
+					</div>
+				</ng-container>
 			</div>
 		</div>
 	</div>

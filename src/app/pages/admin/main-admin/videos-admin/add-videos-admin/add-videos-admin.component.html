@@ -1,1 +1,55 @@
-<p>add-videos-admin works!</p>
+<div class="add-video-box">
+	<h6 class="subtitle">Agregar Video</h6>
+	<form class="add-video-form" [formGroup]="addVideoForm" (ngSubmit)="add()">
+
+		<div class="form-group col-12 col-sm-6">
+			<label for="videoTitle" class="subtitle"><p>Título del Video</p></label>
+			<input	type="text"
+						class="form-control"
+						id="videoTitle"
+						formControlName="videoTitle">
+		</div>
+
+		<div class="form-group col-12 col-sm-6">
+			<label for="videoIdSrc" class="subtitle"><p>Video Id Youtube</p></label>
+			<input	type="text"
+						class="form-control"
+						id="videoIdSrc"
+						formControlName="videoIdSrc">
+		</div>
+
+		<div class="form-group col-12">
+			<label for="videoShortDesc" class="subtitle"><p>Descripción Corta</p></label>
+			<textarea	id="videoShortDesc"
+							class="form-control"
+							rows="1"
+							formControlName="videoShortDesc">
+			</textarea>
+		</div>	
+
+		<div class="form-group col-12">
+			<label for="videoLongDesc" class="subtitle"><p>Descripción Larga</p></label>
+			<textarea	id="videoLongDesc"
+							class="form-control"
+							rows="2"
+							formControlName="videoLongDesc">
+			</textarea>
+		</div>
+
+		<div class="form-group col-12">
+			<label for="videoCategory" class="subtitle"><p>Categoría</p></label>
+			<select	id="videoCategory"
+						class="form-control"
+						formControlName="videoCategory">
+				<option value="" disabled selected>Seleccionar Categoría</option>
+				<option *ngFor="let category of categories" [value]="category.id"> {{ category.name }} </option>
+			</select>
+		</div>
+		<div class="form-group col-12 py-4">
+			<button class="btn btn-second add-video-btn w-100">
+				Agregar Video
+				<div *ngIf="loading" class="spinner-border mx-2" role="status"></div>
+			</button>
+		</div>
+	</form>
+</div>

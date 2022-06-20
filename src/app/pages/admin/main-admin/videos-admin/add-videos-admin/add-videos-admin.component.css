@@ -1,0 +1,27 @@
+.add-video-box {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 1rem 0 0 0;
+}
+	.add-video-form {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	@media screen and (max-width: 768px) {
+		.add-video-form {
+			padding: 1rem;
+		}
+	}
+		.add-video-form .form-group {
+			padding: 0 .2rem;
+		}
+		.add-video-form * {
+			text-align: center;
+		}
+
+
+		.add-video-form .add-video-btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}

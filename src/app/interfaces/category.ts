@@ -5,4 +5,5 @@ export interface Category {
 	icon: string;
 	type: string;
 	link: string;
+	visible: number;
 }

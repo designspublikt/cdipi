@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from '../interfaces/category';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,121 +10,36 @@ export class CategoriesService {
 
   constructor(  private _http: HttpClient) { }
 
-  categories = [
-      {
-        id: 1,
-        color: '#d93637',
-        name: 'Profesionales',
-        icon: 'profesionales.png',
-        type: 'articles',
-        link: 'profesionales'
-      },
-      {
-        id: 2,
-        color: '#bba4ce',
-        name: 'Inmigración',
-        icon: 'inmigracion.png',
-        type: 'videos',
-        link: 'inmigracion'
-      },
-      {
-        id: 3,
-        color: '#6cafbf',
-        name: 'Nuestros Cursos',
-        icon: 'nuestros_cursos.png',
-        type: 'general',
-        link: ''
-      },
-      {
-        id: 4,
-        color: '#202020',
-        name: 'Contacto',
-        icon: 'contacto.png',
-        type: 'general',
-        link: ''
-      },
-      {
-        id: 5,
-        color: '#654315',
-        name: 'Empleo',
-        icon: 'empleo.png',
-        type: 'articles',
-        link: 'empleo'
-      },      
-      {
-        id: 6,
-        color: '#b75c2f',
-        name: 'Innovación',
-        icon: 'innovacion.png',
-        type: 'videos',
-        link: 'innovacion'
-      },      
-      {
-        id: 7,
-        color: '#98fa7a',
-        name: 'Residencias',
-        icon: 'residencias.png',
-        type: 'articles',
-        link: 'residencias'
-      },      
-      {
-        id: 8,
-        color: '#54124a',
-        name: 'Política',
-        icon: 'politica.png',
-        type: 'articles',
-        link: 'politica'
-      },      
-      {
-        id: 9,
-        color: '#7afaf6',
-        name: 'Oportunidades',
-        icon: 'oportunidades.png',
-        type: 'videos',
-        link: 'oportunidades'
-      },      
-      {
-        id: 10,
-        color: '#c8b0ff',
-        name: 'Cultura',
-        icon: 'cultura.png',
-        type: 'articles',
-        link: 'cultura'
-      },      
-      {
-        id: 11,
-        color: '#2c1fbf',
-        name: 'Tecnología',
-        icon: 'tecnologia.png',
-        type: 'videos',
-        link: 'tecnologia'
-      },
-      {
-        id: 12,
-        color: '#3fcaa7',
-        name: 'Crecimiento',
-        icon: 'crecimiento.png',
-        type: 'videos',
-        link: 'crecimiento'
-      }
-    ];
-  
-  getAll() {
-    /* TODO: Get categories from DB */
-    return this.categories;
+    /* Create Category */
+  add(form: any): Observable<any> {
+    return this._http.post(`${environment.API_URL}categories/create`, form);
   }
-
-  getByType(type: string) {
-    /* TODO: Get categories by type from DB */
-    let categoriesFiltered: Category[] = [];
-    categoriesFiltered = this.categories.filter(category => category.type == type);
-    return categoriesFiltered;
+    /* Edit Category */
+  edit(form: any): Observable<any> {
+    return this._http.put(`${environment.API_URL}categories/edit`, form);
   }
-
-  getByName(name: string) {
-    /* TODO: Get category by Name from DB */
-    let categoriesFiltered: Category[] = [];
-    categoriesFiltered = this.categories.filter(category => category.link == name);
-    return categoriesFiltered;
+    /* Delete Category */
+  delete(idCategory: number): Observable<any> {
+    return this._http.delete(`${environment.API_URL}categories/delete/${idCategory}`);
+  }
+    /* Get All Categories */
+  getAll(): Observable<any> {
+    return this._http.get(`${environment.API_URL}categories`);
+  }
+    /* Get All Categories By type */
+  getByType(type: string): Observable<any> {
+    return this._http.get(`${environment.API_URL}categories/type/${type}`);
+  }
+    /* Get Category By Id */
+  getById(id: number): Observable<any> {
+    return this._http.get(`${environment.API_URL}categories/${id}`);
+  }
+    /* Get Category By Name */
+  getByName(name: string): Observable<any> {
+    return this._http.get(`${environment.API_URL}categories/name/${name}`);
+  }
+    /* Get Last Category */
+  getLast(): Observable<any> {
+    return this._http.get(`${environment.API_URL}categories/last`);
   }
 }

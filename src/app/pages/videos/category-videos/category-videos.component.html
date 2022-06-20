@@ -1,25 +1,28 @@
-<div class="videos-library">
+
+<app-spinner *ngIf="videos.length == 0" [loadingMessage]="'Cargando Videos'"></app-spinner>
+
+<div class="videos-library" *ngIf="videos.length > 0">
 	<app-category-title	class="col-12"
 							[categoryName]="categoryVideo.name"
 							[colorHex]="categoryVideo.color"></app-category-title>
 	<div *ngFor="let video of videos; let i = index;" class="video-box last-videos">
-		<div class="video" [routerLink]="['/videos/view', i]">
-			<img src="https://picsum.photos/id/2{{i+9}}/500/300" alt="Video Thumbnail">
+		<div class="video" [routerLink]="['/videos/view', video.id_video]">
+			<img [src]="video.image" alt="Video Thumbnail">
 		</div>
 		<div class="description-box">
-			<div class="video-title" [routerLink]="['/videos/view', i]">
-				<p class="video-title-text title">Título del Video {{ i }} </p>
+			<div class="video-title" [routerLink]="['/videos/view', video.id_video]">
+				<p class="video-title-text title"> {{ video.title }} </p>
 			</div>
-			<div class="category-info" [style.background-color]="categoryVideo.color">
-				<div class="category-icon" [routerLink]="['/videos/category', categoryVideo.link]">
-					<img src="assets/img/videos/categories/cat.png" alt="Category Icon">
+			<div class="category-info" [style.background-color]="video.category_color">
+				<div class="category-icon" [routerLink]="['/videos/category', video.category_id]">
+					<img [src]="'assets/img/categories/' + video.category_icon" alt="Category Icon">
 				</div>
-				<div class="category-name" [routerLink]="['/videos/category', categoryVideo.link]">
-					<p class="category-name-text text-white">{{ categoryVideo.name }}</p>
+				<div class="category-name" [routerLink]="['/videos/category', video.category_id]">
+					<p class="category-name-text text-white">{{ video.category_name }}</p>
 				</div>
 			</div>
-			<div class="description-info" [routerLink]="['/videos/view', i]">
-				<p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi perspiciatis debitis quas sunt veniam, ad recusandae</p>
+			<div class="description-info" [routerLink]="['/videos/view', video.id_video]">
+				<p class="description-text"> {{ video.desc_long }} </p>
 			</div>
 		</div>
 	</div>

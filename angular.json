@@ -28,6 +28,8 @@
             ],
             "styles": [
               "./node_modules/swiper/swiper-bundle.min.css",
+              "./node_modules/ngx-toastr/toastr.css",
+              "./node_modules/ngx-spinner/animations/ball-fall.css",
               "src/styles.css"
             ],
             "scripts": [

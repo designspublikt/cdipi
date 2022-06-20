@@ -3,10 +3,13 @@
 		<img src="assets/img/logo/logo_color.png" alt="cdipi logo">
 	</div>
 	<div class="options">
-		<div class="option">
+		<div class="option" [routerLink]="['/']">
+			<i class="fa-solid fa-earth-americas"></i>
+		</div>
+		<div class="option" [routerLink]="['/admin']">
 			<i class="fa-solid fa-house-chimney"></i>
 		</div>
-		<div class="option">
+		<div class="option" (click)="logout()">
 			<i class="fa-solid fa-right-from-bracket"></i>
 		</div>
 	</div>

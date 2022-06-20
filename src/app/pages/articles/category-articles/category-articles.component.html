@@ -1,25 +1,27 @@
+
 <div class="articles-library">
 	<app-category-title	class="col-12"
-							[categoryName]="categoryArticle.name"
-							[colorHex]="categoryArticle.color"></app-category-title>
-	<div *ngFor="let article of articles; let i = index;" class="article-box last-articles">
-		<div class="article" [routerLink]="['/articles/view', i]">
-			<img src="https://picsum.photos/id/2{{i+9}}/500/300" alt="article Thumbnail">
+								[categoryName]="categoryArticle.name"
+								[colorHex]="categoryArticle.color"></app-category-title>
+	<app-spinner *ngIf="articles.length == 0" [loadingMessage]="'Cargando Artículos'" class="mx-auto"></app-spinner>
+	<div *ngFor="let article of articles;" class="article-box last-articles">
+		<div class="article" [routerLink]="['/articles/view', article.id_article]">
+			<img [src]="'assets/img/articles/' + article.image" alt="Article Image">
 		</div>
 		<div class="description-box">
-			<div class="article-title" [routerLink]="['/articles/view', i]">
-				<p class="article-title-text title">Título del Articulo {{ i }} </p>
+			<div class="article-title" [routerLink]="['/articles/view', article.id_article]">
+				<p class="article-title-text title"> {{ article.title }} </p>
 			</div>
-			<div class="category-info" [style.background-color]="categoryArticle.color">
-				<div class="category-icon" [routerLink]="['/articles/category', categoryArticle.link]">
-					<img src="assets/img/articles/categories/cat.png" alt="Category Icon">
+			<div class="category-info" [style.background-color]="article.category_color">
+				<div class="category-icon" [routerLink]="['/articles/category', article.id_category_article]">
+					<img [src]="'assets/img/categories/' + article.category_icon" alt="Category Icon">
 				</div>
-				<div class="category-name" [routerLink]="['/articles/category', categoryArticle.link]">
-					<p class="category-name-text text-white">{{ categoryArticle.name }}</p>
+				<div class="category-name" [routerLink]="['/articles/category', article.id_category_article]">
+					<p class="category-name-text text-white">{{ article.category_name }}</p>
 				</div>
 			</div>
-			<div class="description-info" [routerLink]="['/articles/view', i]">
-				<p class="description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi perspiciatis debitis quas sunt veniam, ad recusandae</p>
+			<div class="description-info" [routerLink]="['/articles/view', article.id_article]">
+				<p class="description-text"> {{ article.desc_long }} </p>
 			</div>
 		</div>
 	</div>

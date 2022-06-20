@@ -1,127 +1,23 @@
 <section class="section-view-video">
 	<div class="main-video">
-		<iframe width="100%" height="400" src="https://www.youtube.com/embed/43rH09autHI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		<h6 class="title">Este es el título del video</h6>
-		<app-category-title	[categoryName]="'Categoría Nombre'"
-									[colorHex]="'#5a8742'"></app-category-title>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum a rerum ratione animi beatae vitae voluptas quam placeat mollitia, maiores magnam. Dolorum, deserunt impedit velit nesciunt dolor at voluptatibus odit?</p>
+		<iframe width="100%" height="450" [src]="'https://www.youtube.com/embed/' + video.src | safe:'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<h6 class="title"> {{ video.title }} </h6>
+		<app-category-title	[categoryName]="video.category_name"
+									[colorHex]="video.category_color"></app-category-title>
+		<p> {{ video.desc_long }} </p>
 	</div>
 	<div class="other-videos scroll">
 		<h5 class="text-center other-videos-title"><strong>Otros Videos Relacionados</strong></h5>
-		<div class="video">
+		<div *ngFor="let videoCat of videosCat" class="video" [routerLink]="['/videos/view', videoCat.id_video]">
 			<div class="thumbnail">
-				<img src="https://picsum.photos/id/210/500/300" alt="Video Thumbnail">
+				<img [src]="videoCat.image" alt="Video Thumbnail">
 			</div>
 			<div class="video-info">
 				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
+					<p class="title p-0"> {{ videoCat.title }} </p>
 				</div>
 				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/211/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/212/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/213/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/214/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/215/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/216/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/217/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
-				</div>
-			</div>
-		</div>
-		<div class="video" [routerLink]="['/videos/view', 1]">
-			<div class="thumbnail">
-				<img src="https://picsum.photos/id/218/500/300" alt="Video Thumbnail">
-			</div>
-			<div class="video-info">
-				<div class="title-video">
-					<p class="title p-0">Título del Video</p>
-				</div>
-				<div class="category-info">
-					<p class="category-name"><strong>Nombre de la categoría</strong></p>
+					<p class="category-name"><strong> {{ videoCat.category_name }} </strong></p>
 				</div>
 			</div>
 		</div>
