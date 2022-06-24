@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.auth = this._AuthService.checkAuth();
+    this.auth = !this._AuthService.checkAuth() ? this._AuthService.checkAuth() : true;
     if(this.auth) this._Router.navigate(['/admin']);
 
   }

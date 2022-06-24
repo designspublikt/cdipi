@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ArticleFull } from 'src/app/interfaces/article';
 import { Category } from 'src/app/interfaces/category';
 import { ArticlesService } from 'src/app/services/articles.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { CategoriesService } from 'src/app/services/categories.service';
 
 
@@ -33,6 +34,7 @@ export class AddArticlesAdminComponent implements OnInit {
   constructor(  private _FormBuilder: FormBuilder,
                 private _ToastrService: ToastrService,
                 private _ArticlesService: ArticlesService,
+                private _AuthService: AuthService,
                 private _CategoriesService: CategoriesService,
                 private _Router: Router) {
     this.addArticlesForm = this._FormBuilder.group({
@@ -50,6 +52,7 @@ export class AddArticlesAdminComponent implements OnInit {
     await this.getLastArticle();
     await this.getArticlesCategories();
   }
+
 
   async getArticlesCategories() {
     let categoriesP = new Promise((resolve, reject) => {

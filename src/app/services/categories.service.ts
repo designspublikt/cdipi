@@ -1,26 +1,32 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
 
-  constructor(  private _http: HttpClient) { }
+  httpHeaders = new HttpHeaders({
+    'Authorization-Token': `${this._AuthService.checkAuth()}`
+  });
+
+  constructor(  private _http: HttpClient,
+                private _AuthService: AuthService) { }
 
     /* Create Category */
   add(form: any): Observable<any> {
-    return this._http.post(`${environment.API_URL}categories/create`, form);
+    return this._http.post(`${environment.API_URL}categories/create`, form, {headers: this.httpHeaders});
   }
     /* Edit Category */
   edit(form: any): Observable<any> {
-    return this._http.put(`${environment.API_URL}categories/edit`, form);
+    return this._http.put(`${environment.API_URL}categories/edit`, form, {headers: this.httpHeaders});
   }
     /* Delete Category */
   delete(idCategory: number): Observable<any> {
-    return this._http.delete(`${environment.API_URL}categories/delete/${idCategory}`);
+    return this._http.delete(`${environment.API_URL}categories/delete/${idCategory}`, {headers: this.httpHeaders});
   }
     /* Get All Categories */
   getAll(): Observable<any> {

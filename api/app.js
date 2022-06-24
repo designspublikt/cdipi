@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyparser = require('body-parser');
+const authMiddleWare = require('./middlewares/auth');
 const cors = require('cors');
 const app = express();
 
@@ -23,6 +24,7 @@ const app = express();
 
 	app.use('/api/articles', require('./routes/articles'));
 	app.use('/api/categories', require('./routes/categories'));
+	app.use('/api/courses', require('./routes/courses'));
 	app.use('/api/videos', require('./routes/videos'));
 
 /* PORT Config */

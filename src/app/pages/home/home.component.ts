@@ -5,9 +5,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleFull } from 'src/app/interfaces/article';
 import { Category } from 'src/app/interfaces/category';
+import { Course } from 'src/app/interfaces/course';
 import { FullVideo } from 'src/app/interfaces/video';
 import { ArticlesService } from 'src/app/services/articles.service';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { CoursesService } from 'src/app/services/courses.service';
 import { SendMailService } from 'src/app/services/send-mail.service';
 import { VideosService } from 'src/app/services/videos.service';
 import { environment } from 'src/environments/environment';
@@ -31,6 +33,8 @@ export class HomeComponent implements OnInit, AfterContentInit {
   lastVideos: FullVideo[] = [];
 
   categories: Category[] = [];
+  
+  courses: Course[] = [];
 
   articlesByCategory1: ArticleFull[] = [];
   articlesByCategory2: ArticleFull[] = [];
@@ -43,6 +47,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
   constructor(  private _ArticlesService: ArticlesService,
                 private _VideosService: VideosService,
+                private _CoursesService: CoursesService,
                 private _CategoriesService: CategoriesService,
                 private _SendMailService: SendMailService,
                 private _ToastrService: ToastrService,
@@ -73,6 +78,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
     await this.getCategories();
     await this.getArticlesCategories();
     await this.getVideosCategories();
+    await this.getCourses();
 
     this._ReCaptchaV3Service.execute(this.sk, 'homepage', tk => this.captchaTK = tk, {useGlobalDomain: false});
 
@@ -115,6 +121,25 @@ export class HomeComponent implements OnInit, AfterContentInit {
     });
 
     let result = await videosP;
+    return result;
+  }
+
+
+
+
+
+  async getCourses() {
+    let coursesP = new Promise((resolve, reject) => {
+      this._CoursesService.getAll()
+        .subscribe(coursesRes => {
+          if(!coursesRes.status) reject(coursesRes);
+
+          coursesRes.response.map((course: Course) => this.courses.push(course));
+          resolve(coursesRes.status);
+        });
+    });
+
+    let result = await coursesP;
     return result;
   }
 

@@ -139,58 +139,24 @@
 								
 		<swiper	class="swiper"
 					[slidesPerView]="1"
-					[navigation]="true"
+					[draggable]="false"
+					[navigation]="false"
 					[autoplay]="{delay:2000}">
 
 			<ng-template class="swiperSlide" swiperSlide>
 				<div class="courses-box">
-					<div class="course col-12 col-sm-6">
-						<div class="img-course">
-							<img src="assets/img/courses/1.jpg" alt="Course Image">
-						</div>
-						<div class="course-content">
-							<div class="course-description">
-								<p class="title p-0">Título del Curso</p>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					<div *ngFor="let course of courses; let i = index;" class="course col-12 col-sm-6">
+						<ng-container *ngIf="i <= 3">
+							<div class="img-course">
+								<img [src]="course.image" alt="Course Image" style="border-radius: 5px;">
 							</div>
-							<button type="button" class="btn btn-second">Inscribirme</button>
-						</div>
-					</div>
-					<div class="course col-12 col-sm-6">
-						<div class="img-course">
-							<img src="assets/img/courses/2.jpg" alt="Course Image">
-						</div>
-						<div class="course-content">
-							<div class="course-description">
-								<p class="title p-0">Título del Curso</p>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit?</p>
+							<div class="course-content">
+								<div class="course-description">
+									<p class="title py-2 px-0"> {{ course.title }} </p>
+								</div>
+								<button type="button" class="btn btn-second" routerLink="/plataforma">Inscribirme</button>
 							</div>
-							<button type="button" class="btn btn-second">Inscribirme</button>
-						</div>
-					</div>
-					<div class="course col-12 col-sm-6">
-						<div class="img-course">
-							<img src="assets/img/courses/3.jpg" alt="Course Image">
-						</div>
-						<div class="course-content">
-							<div class="course-description">
-								<p class="title p-0">Título del Curso</p>
-								<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit</p>
-							</div>
-							<button type="button" class="btn btn-second">Inscribirme</button>
-						</div>
-					</div>
-					<div class="course col-12 col-sm-6">
-						<div class="img-course">
-							<img src="assets/img/courses/4.jpg" alt="Course Image">
-						</div>
-						<div class="course-content">
-							<div class="course-description">
-								<p class="title p-0">Título del Curso</p>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-							</div>
-							<button type="button" class="btn btn-second">Inscribirme</button>
-						</div>
+						</ng-container>
 					</div>
 				</div>
 			</ng-template>
