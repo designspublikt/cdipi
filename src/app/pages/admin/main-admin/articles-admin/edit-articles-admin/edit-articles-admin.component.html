@@ -7,7 +7,8 @@
 				<image-cropper	[imageChangedEvent]="imageCropperSrc"
 									[maintainAspectRatio]="true"
 									[aspectRatio]="730 / 450"
-									[imageQuality]="70"
+									[resizeToWidth]="730"
+									[imageQuality]="90"
 									[format]="'jpeg'"
 									(imageCropped)="cropImage($event)">
 				</image-cropper>

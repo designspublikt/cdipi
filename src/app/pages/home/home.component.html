@@ -27,7 +27,9 @@
 		</div>
 
 		<div	class="second content-box" [ngStyle]="{'background-image':'url(' + lastVideos[1]?.image + ')'}" [routerLink]="['/videos/view', lastVideos[1]?.id_video]">
-			<!-- Youtube Video -->
+			<div class="video-title-box">
+				<p class="title"> {{ lastVideos[1].title }} </p>
+			</div>
 		</div>
 
 		<div	class="third content-box"
@@ -48,7 +50,9 @@
 		</div>
 
 		<div	class="fourth content-box" [ngStyle]="{'background-image':'url(' + lastVideos[0]?.image + ')'}" [routerLink]="['/videos/view', lastVideos[0]?.id_video]">
-			<!-- Youtube Video -->
+			<div class="video-title-box">
+				<p class="title"> {{ lastVideos[0].title }} </p>
+			</div>
 		</div>
 	</div>
 </header>
@@ -154,7 +158,7 @@
 								<div class="course-description">
 									<p class="title py-2 px-0"> {{ course.title }} </p>
 								</div>
-								<button type="button" class="btn btn-second" routerLink="/plataforma">Inscribirme</button>
+								<a class="btn btn-second" href="/plataforma">Inscribirme</a>
 							</div>
 						</ng-container>
 					</div>
@@ -280,19 +284,20 @@
 		</div>
 	</div>
 	<div class="videos">
-		<app-category-title	*ngIf="videosCategories.length > 0"
+		<app-category-title	class="col-12"
+									*ngIf="videosCategories.length > 0"
 									[categoryName]="videosCategories[1].name"
 									[colorHex]="videosCategories[1].color"
 									[icon]="videosCategories[1].icon"></app-category-title>
 		
-		<div class="videos-content">
+		<div class="videos-content col-12">
 			<div *ngFor="let video of videosByCategory2; let i = index;" class="video" [routerLink]="['/videos/view', video.id_video]">
 				<ng-container *ngIf="i <= 5">
 					<div class="video-box" [ngStyle]="{'background-image':'url(' + video.image +')', 'background-size':'cover', 'background-position':'center', 'min-height':'110px'}">
 						<!-- Video Image -->
 					</div>
 					<div class="video-title">
-						<small class="title"> {{ video.title }} </small>
+						<p class="title"> {{ video.title }} </p>
 					</div>
 				</ng-container>
 			</div>

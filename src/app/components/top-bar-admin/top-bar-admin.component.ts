@@ -13,6 +13,10 @@ export class TopBarAdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reload() {
+    location.reload();
+  }
+
   logout() {
     localStorage.clear();
     this._Router.navigate(['/admin/login']);

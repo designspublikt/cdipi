@@ -170,6 +170,7 @@ export class EditArticlesAdminComponent implements OnInit {
       let articleP = new Promise((resolve, reject) => {
         this._ArticlesService.edit(data)
           .subscribe(articleRes => {
+            console.log(articleRes);
             if(!articleRes.status) reject(articleRes);
 
             resolve(articleRes.status);

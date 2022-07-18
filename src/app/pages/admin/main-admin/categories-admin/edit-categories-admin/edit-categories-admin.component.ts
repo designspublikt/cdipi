@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { ToastrService } from 'ngx-toastr';
-import { stringify } from 'querystring';
 import { Category } from 'src/app/interfaces/category';
 import { CategoriesService } from 'src/app/services/categories.service';
 
@@ -132,7 +131,7 @@ export class EditCategoriesAdminComponent implements OnInit {
         categoryData = new FormData();
 
         categoryData.append('iconCategory', this.categoryImage);
-        categoryData.append('formCategory', stringify(this.editCategoryForm.value));
+        categoryData.append('formCategory', JSON.stringify(this.editCategoryForm.value));
       }
 
       let editCategory = await this.editCategoryAsync(categoryData);

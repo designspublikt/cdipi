@@ -54,6 +54,20 @@ app-category-title {
 			width: 20px;
 		}
 
+		.content-box .video-title-box {
+			background-color: rgba(0,0,0,0.5);
+			padding: .2rem 1rem;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			color: #fff;
+		}
+		@media screen and (max-width: 768px) {
+			.content-box .video-title-box {
+				padding: .2rem;
+			}
+		}
+
 		.first {
 			grid-column: 1 / 2;
 			grid-row: 1 / 3;
@@ -125,7 +139,7 @@ app-category-title {
 		}
 		@media screen and (max-width: 768px) {
 			.first-section .category.articles.main {
-				grid-template-rows: 10% 90%;
+				grid-template-rows: auto;
 			}
 		}
 			.category.articles.main app-category-title {
@@ -153,16 +167,16 @@ app-category-title {
 					}
 				}
 					.category.articles.main .main-articles .article .art-content {
-						position: absolute;
+						position: relative;
 						background-color: #fff;
 						width: 80%;
-						top: 150px;
+						top: -50px;
 						left: 0;
 						right: 0;
 						margin: 0 auto;
 						padding: 1rem;
 						box-shadow: 4px 4px 4px 2px rgba(0,0,0,0.5);
-						min-height: 200px;
+						min-height: 260px;
 						display: flex;
 						flex-direction: column;
 						justify-content: space-between;
@@ -201,7 +215,6 @@ app-category-title {
 			gap: 1rem;
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: 1fr;
-			padding-top: 2rem;
 		}
 		@media screen and (max-width: 768px) {
 			.first-section .category.articles.secondary {
@@ -213,7 +226,7 @@ app-category-title {
 				flex-wrap: wrap;
 				justify-content: center;
 				align-items: center;
-				padding: 1rem 0;
+				padding: 0 0 1rem 0;
 				cursor: pointer;
 			}
 			@media screen and(max-width: 768px) {
@@ -324,6 +337,7 @@ app-category-title {
 							grid-column: 1 / 3;
 						}
 					}
+					
 				.second-section .courses-area .banner-vertical {
 					grid-column: 2 / 3;
 					grid-row: 2 / 3;
@@ -569,8 +583,11 @@ app-category-title {
 			.third-section .videos {
 				grid-column: 2 / 3;
 				grid-row: 1 / 2;
-				display: grid;
-				grid-template-columns: 1fr;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				flex-wrap: wrap;
 			}
 				@media screen and (max-width: 768px) {
 					.third-section .videos {

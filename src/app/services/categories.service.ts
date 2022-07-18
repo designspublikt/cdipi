@@ -9,12 +9,14 @@ import { AuthService } from './auth.service';
 })
 export class CategoriesService {
 
-  httpHeaders = new HttpHeaders({
-    'Authorization-Token': `${this._AuthService.checkAuth()}`
-  });
+  httpHeaders;
 
   constructor(  private _http: HttpClient,
-                private _AuthService: AuthService) { }
+                private _AuthService: AuthService) {
+    this.httpHeaders = new HttpHeaders({
+      'Authorization-Token': `${this._AuthService.checkAuth()}`
+    });
+  }
 
     /* Create Category */
   add(form: any): Observable<any> {

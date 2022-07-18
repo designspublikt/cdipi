@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
       showConfirmButton: false
     });
 
+    localStorage.clear();
+
     this._AuthService.login(loginForm.value)
       .subscribe(async loginRes => {
         if(!loginRes.status) {

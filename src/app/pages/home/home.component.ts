@@ -83,6 +83,8 @@ export class HomeComponent implements OnInit, AfterContentInit {
     this._ReCaptchaV3Service.execute(this.sk, 'homepage', tk => this.captchaTK = tk, {useGlobalDomain: false});
 
 
+    console.log(this.videosByCategory2);
+
     this.showPreloader = false;
   }
 

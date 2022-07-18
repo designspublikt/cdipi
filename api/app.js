@@ -27,6 +27,8 @@ const app = express();
 	app.use('/api/courses', require('./routes/courses'));
 	app.use('/api/videos', require('./routes/videos'));
 
+	
+
 /* PORT Config */
 	const PORT = process.env.PORT || 3000;
 

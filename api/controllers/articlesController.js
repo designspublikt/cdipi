@@ -1,20 +1,38 @@
 const Article = require('../models/Article');
-let article = new Article;
+const ftp = require('ftp');
 const multer = require('multer');
+const ftpStorage = require('multer-ftp');
 const fs = require('fs');
-const fsP = require('fs').promises;
+const fsP = fs.promises;
 const path = require('path');
+let article = new Article;
 let promiseRes;
 
-let articleImageFolder = path.dirname('../src/assets/img/articles/*');
+let articleImageFolder = fs.existsSync(path.dirname('../src/assets/img/articles/*')) ? path.dirname('../src/assets/img/articles/*') : path.dirname('/assets/img/articles/*');
 
 /* Conifigure Multer */
-	const storage = multer.diskStorage({
-		destination: (req, file, cb) => {
-			cb(null, articleImageFolder);
-		},
-		filename: (req, file, cb) => {
-			cb(null, file.originalname);
+	// const storage = multer.diskStorage({
+	// 	destination: (req, file, cb) => {
+	// 		cb(null, articleImageFolder);
+	// 	},
+	// 	filename: (req, file, cb) => {
+	// 		cb(null, file.originalname);
+	// 	}
+	// });
+
+	const ftpClient = new ftp();
+	ftpClient.connect({
+		port: 21,
+		host: '162.251.80.27',
+		user: 'cdipi@innovacion2.com',
+		password: 'CanQue@2022'
+	})
+
+	const storage = new ftpStorage({
+		basepath: articleImageFolder,
+		connection: ftpClient,
+		destination: (req, file, options, cb) => {
+			cb(null, articleImageFolder + '/' + file.originalname)
 		}
 	});
 
@@ -32,11 +50,15 @@ const upload = multer({storage, fileFilter});
 
 exports.upload = upload.single('articleImage');
 
-
 exports.add = (req, res) => {
 
 	if(req.file) {
 		let body = JSON.parse(req.body.articleForm);
+
+		ftpClient.site(`chmod 0777 ${articleImageFolder}/${body.image}`, (err, res)=> {
+			if(err) console.log(err);
+			console.log(res);
+		});
 
 		article.id = body.id;
 		article.title = body.title;
@@ -74,6 +96,7 @@ exports.add = (req, res) => {
 
 
 exports.edit = (req, res) => {
+
 	let body = req.file ? JSON.parse(req.body.articleForm) : req.body;
 
 	article.id = body.id;
@@ -107,11 +130,44 @@ exports.edit = (req, res) => {
 exports.delete = (req, res) => {
 	let articleId = req.params.id;
 
-	fs.unlink(articleImageFolder + '/' + articleId + '.jpg', error => {
+	/* LOCALHOST */
+	// fs.unlink(articleImageFolder + '/' + articleId + '.jpg', error => {
+	// 	if(error) {
+	// 		res.json({
+	// 			status: false,
+	// 			message: 'Error deleting image',
+	// 			error
+	// 		});
+	// 	} else {
+	// 		article.id = articleId;
+
+	// 		promiseRes = article.delete();
+
+	// 		promiseRes
+	// 			.then(response => {
+	// 				res.json({
+	// 					status: true,
+	// 					message: 'Article Deleted',
+	// 					response
+	// 				});
+	// 			})
+	// 			.catch(error => {
+	// 				res.json({
+	// 					status: false,
+	// 					message: 'There was an error with database query',
+	// 					error
+	// 				});
+	// 			});
+	// 	}
+	// });
+
+	/* REMOTE SERVER FTP */
+	ftpClient.delete(`${articleImageFolder}/${articleId}.jpg`, (error) => {
 		if(error) {
+			ftpClient.end();
 			res.json({
 				status: false,
-				message: 'Error deleting image',
+				message: 'Error removing article image',
 				error
 			});
 		} else {
@@ -130,7 +186,7 @@ exports.delete = (req, res) => {
 				.catch(error => {
 					res.json({
 						status: false,
-						message: 'There was an error with database query',
+						message: 'There was a error with the query',
 						error
 					});
 				});

@@ -9,6 +9,8 @@
 
 # dependencies
 /node_modules
+/api/node_modules
+/src/app/ckeditor5/node_modules
 
 # profiling files
 chrome-profiler-events*.json

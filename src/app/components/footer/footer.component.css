@@ -73,8 +73,9 @@ footer {
 	}
 		.social-networks .social-icons {
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: center;
 			align-items: center;
+			gap: 1rem;
 		}
 			.social-networks .social-icons .network {
 				width: 2.5rem;
@@ -90,6 +91,11 @@ footer {
 			.social-networks .social-icons .network:hover {
 				background-color: var(--main-color-transparent);
 			}
+				.social-networks .social-icons .network a {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
 				.social-networks .social-icons .network i {
 					font-size: 1.3rem;
 					color: #fff;
