@@ -103,7 +103,7 @@ footer {
 
 		.social-networks .contact-info {
 			padding: 1rem;
-			max-width: 300px;
+			max-width: 350px;
 			margin: 0 auto;
 		}
 			.social-networks .contact-info .item {
@@ -116,9 +116,15 @@ footer {
 					padding: .3rem 1rem;
 				}
 					.social-networks .contact-info .item .icon i {
-						font-size: 1rem;
+						font-size: 1.5rem;
 					}
 				
+				.social-networks .contact-info .item .info {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					gap: .5rem;
+				}
 				.social-networks .contact-info .item .info * {
 					padding: 0;
 				}
