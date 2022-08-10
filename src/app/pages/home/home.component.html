@@ -28,7 +28,7 @@
 
 		<div	class="second content-box" [ngStyle]="{'background-image':'url(' + lastVideos[1]?.image + ')'}" [routerLink]="['/videos/view', lastVideos[1]?.id_video]">
 			<div class="video-title-box">
-				<p class="title"> {{ lastVideos[1].title }} </p>
+				<p class="title"> {{ lastVideos[1]?.title }} </p>
 			</div>
 		</div>
 
@@ -51,7 +51,7 @@
 
 		<div	class="fourth content-box" [ngStyle]="{'background-image':'url(' + lastVideos[0]?.image + ')'}" [routerLink]="['/videos/view', lastVideos[0]?.id_video]">
 			<div class="video-title-box">
-				<p class="title"> {{ lastVideos[0].title }} </p>
+				<p class="title"> {{ lastVideos[0]?.title }} </p>
 			</div>
 		</div>
 	</div>
@@ -170,32 +170,38 @@
 			<button class="btn btn-outline-first" style="z-index: 1;" [routerLink]="'aboutus'">¿Quienes Somos?</button>
 		</div>
 		<div class="banner-horizontal">
-			<div class="services-box">
-				<div class="service">
-					<div class="icon-service">
-						<img src="assets/img/home/services/coaching.png" alt="Coahing Image">
+			<swiper	class="swiper services-box"
+						[slidesPerView]="1"
+						[draggable]="false"
+						[navigation]="false"
+						[autoplay]="{delay:5000}"
+						[preventClicks]="false">
+
+				<ng-template class="swiperSlide" swiperSlide>
+					<div class="service" routerLink="/coaching">
+						<div class="icon-service">
+							<img class="no-mobile" src="assets/img/home/services/coaching.jpg" alt="Coahing Image">
+							<img class="mobile" src="assets/img/home/services/coaching_mb.jpg" alt="Coahing Image">
+						</div>
 					</div>
-					<div class="description-service">
-						<h6 class="title">Coaching Profesional</h6>
+				</ng-template>
+				<ng-template class="swiperSlide" swiperSlide>
+					<div class="service" routerLink="/coaching">
+						<div class="icon-service">
+							<img class="no-mobile" src="assets/img/home/services/online.jpg" alt="Online Image">
+							<img class="mobile" src="assets/img/home/services/online_mb.jpg" alt="Online Image">
+						</div>
 					</div>
-				</div>
-				<div class="service">
-					<div class="icon-service">
-						<img src="assets/img/home/services/online.png" alt="Online Image">
+				</ng-template>
+				<ng-template class="swiperSlide" swiperSlide>
+					<div class="service" routerLink="/coaching">
+						<div class="icon-service">
+							<img class="no-mobile" src="assets/img/home/services/certification.jpg" alt="Certification Image">
+							<img class="mobile" src="assets/img/home/services/certification_mb.jpg" alt="Certification Image">
+						</div>
 					</div>
-					<div class="description-service">
-						<h6 class="title">Capacitación Virtual</h6>
-					</div>
-				</div>
-				<div class="service">
-					<div class="icon-service">
-						<img src="assets/img/home/services/certification.png" alt="Certification Image">
-					</div>
-					<div class="description-service">
-						<h6 class="title">Certificación</h6>
-					</div>
-				</div>
-			</div>
+				</ng-template>
+			</swiper>
 		</div>
 	</div>
 	<div class="contact-form-area">

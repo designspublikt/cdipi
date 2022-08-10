@@ -1,0 +1,68 @@
+<div class="modal fade" id="contactModalForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="contactModalFormLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="contactModalFormLabel">Formulario de Contacto</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form class="contactForm" autocomplete="off" [formGroup]="contactForm" (ngSubmit)="sendMail()">
+					<div class="form-group col-12 col-sm-3">
+						<label for="firstname">Nombre</label>
+						<input	type="text"
+									class="form-control"
+									formControlName="firstname">
+					</div>
+					<div class="form-group col-12 col-sm-3">
+						<label for="lastname">Apellido</label>
+						<input 	type="text"
+									class="form-control"
+									formControlName="lastname">
+					</div>
+					<div class="form-group col-12 col-sm-6">
+						<label for="email">Email</label>
+						<input	type="email"
+									class="form-control"
+									formControlName="email">
+					</div>
+					<div class="form-group col-12 col-sm-6">
+						<label for="phonenumber">Teléfono de Contacto</label>
+						<input	type="text"
+									class="form-control"
+									formControlName="phonenumber">
+					</div>
+					<div class="form-group col-12">
+						<label for="coachingservice">Tipo de Coaching</label>
+						<select	id="coachingservice"
+									class="form-control scroll"
+									formControlName="coachingservice">
+
+							<option value="" disabled selected>Elija un tipo de coaching</option>
+							<option value="Coaching de carrera">1. Coaching de carrera</option>
+							<option value="Coaching de carrera">2. Coaching en Comunicacion profesional</option>
+							<option value="Coaching de carrera">3. Coaching en imagen de marca (personal o empresarial)</option>
+							<option value="Coaching de carrera">4. Coaching en educacion emocional y liderazgo</option>
+							<option value="Coaching de carrera">5. Coaching en lanzamiento de empresa</option>
+							<option value="Coaching de carrera">6. Coaching en gestion o acompañamiento ejecutivo</option>
+							<option value="Coaching de carrera">7. Coaching en servicio a la clientela</option>
+							<option value="Coaching de carrera">8. Coaching de Equipo</option>
+						</select>
+					</div>
+					<div class="form-group col-12">
+						<label for="message">Mensaje</label>
+						<textarea	class="form-control"
+										cols="30"
+										rows="2"
+										formControlName="message"></textarea>
+					</div>
+					<div class="form-group col-12 text-center">
+						<button type="submit" class="btn btn-third">Enviar</button>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-second" data-bs-dismiss="modal" (click)="resetForm()">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>

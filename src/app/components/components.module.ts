@@ -15,6 +15,7 @@ import { ActionsListAdminComponent } from './actions-list-admin/actions-list-adm
 import { AdminSectionHeaderComponent } from './admin-section-header/admin-section-header.component';
 import { CategoriesBarComponent } from './categories-bar/categories-bar.component';
 import { CategoryTitleComponent } from './category-title/category-title.component';
+import { ContactFormModalComponent } from './contact-form-modal/contact-form-modal.component';
 import { FooterComponent } from './footer/footer.component';
 import { FullNavBarComponent } from './full-nav-bar/full-nav-bar.component';
 import { HeaderComponent } from './header/header.component';
@@ -44,6 +45,7 @@ import { TopBarAdminComponent } from './top-bar-admin/top-bar-admin.component';
     ActionsListAdminComponent,
     SpinnerComponent,
     PreloaderComponent,
+    ContactFormModalComponent,
   ],
   imports: [
     CommonModule,
@@ -76,6 +78,7 @@ import { TopBarAdminComponent } from './top-bar-admin/top-bar-admin.component';
     ActionsListAdminComponent,
     SpinnerComponent,
     PreloaderComponent,
+    ContactFormModalComponent
   ]
 })
 export class ComponentsModule { }

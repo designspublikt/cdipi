@@ -1,0 +1,90 @@
+<app-full-nav-bar></app-full-nav-bar>
+
+	<section class="coaching-section container">
+		<app-section-title [title]="'Coaching'"></app-section-title>
+
+		<div class="content">
+			<p>Porque el contexto actual, las innovaciones y la revolución digital te están obligando a revisar tu juego. Descubre nuestros servicios de coaching inspirados en nuestro saber hacer, en gestión y desarrollo profesional y en nuestras iniciativas de transformación empresarial, tecnológica y cultural.</p>
+
+			<div class="coaching-services">
+				<img class="col-12 col-sm-6" src="assets/img/coaching/coach.jpg" alt="Coaching Image">
+				<div class="services col-12 col-sm-6">
+					<p>1. Coaching de Carrera </p>
+					<p>2. Coaching en comunicación profesional</p>
+					<p>3. Coaching en imagen de marca</p>
+					<p>4. Coaching en educación emocional y liderazgo</p>
+					<p>5. Coaching en Lanzamiento de empresa</p>
+					<p>6. Coaching en gestión o acompañamiento ejecutivo</p>
+					<p>7. Coaching de equipo o colectivo</p>
+				</div>
+			</div>
+
+			<app-category-title	[categoryName]="'¿Por qué el Coaching individual?'"
+										[icon]="'coachInd.png'"
+										[colorHex]="'#202020'"></app-category-title>
+									
+			<p>Este servicio está diseñado para apoyar a profesionales, supervisores, gerentes y líderes tanto a nivel estratégico como en sus desafíos diarios. Podrás liberar tus talentos, habilidades y aprendizajes para transformarlos en una palanca de desempeño, con el fin de alcanzar tus objetivos individuales y colectivos.</p>
+			
+			<hr>
+
+			<app-category-title	[categoryName]="'¿Por qué Coaching de Equipos o Colectivo?'"
+										[icon]="'coachPeople.png'"
+										[colorHex]="'#202020'"></app-category-title>
+
+			<p>Consolidar y comprometer una identidad colectiva para lograr la misión del equipo respetando los objetivos de las personas y de la organización. Evolucionar juntos con agilidad, desarrollar el compromiso y la corresponsabilidad para sacar a relucir los recursos disponibles y los posibles caminos hacia el éxito.</p>
+
+			<hr>
+		</div>
+		<div class="contact-form">
+			<form class="coaching-form" [formGroup]="coachingForm" (ngSubmit)="sendMail()">
+				<h6 class="title text-center col-12">Solicita Tu Servicio de Coaching Aquí</h6>
+				<div class="form-group col-12 col-sm-6">
+					<input	type="text"
+								class="form-control"
+								placeholder="Nombres"
+								formControlName="firstname">
+				</div>
+				<div class="form-group col-12 col-sm-6">
+					<input	type="text"
+								class="form-control"
+								placeholder="Apellidos"
+								formControlName="lastname">
+				</div>
+				<div class="form-group col-12 col-sm-6">
+					<input	type="text"
+								class="form-control"
+								placeholder="Correo Electronico"
+								formControlName="email">
+				</div>
+				<div class="form-group col-12 col-sm-6">
+					<input	type="text"
+								class="form-control"
+								placeholder="Teléfono"
+								formControlName="phone">
+				</div>
+				<div class="form-group col-12">
+					<select	class="form-control"
+								formControlName="topic">
+						<option value="" disabled selected>¿Qué Coaching te Interesa?</option>
+						<option value="coaching_carrera">Coaching de Carrera</option>
+						<option value="coaching_comunicacion_profesional">Coaching en Comunicación Profesional</option>
+						<option value="coaching_imagen_marca">Coaching en Imagen de Marca</option>
+						<option value="coaching_educacion_emocional_liderazgo">Coaching en Educación Emocional y Liderazgo</option>
+						<option value="coaching_lanzamiento_empresa">Coaching en Lanzamiento de Empresa</option>
+						<option value="coaching_gestion_acompanamiento_ejecutivo">Coaching en Gestión o Acompañamiento Ejecutivo</option>
+						<option value="coaching_equipo_colectivo">Coaching de Equipo o Colectivo</option>
+					</select>
+				</div>
+				<div class="form-group col-12">
+					<textarea	rows="3"
+									placeholder="Mensaje..."
+									class="form-control"
+									formControlName="message"></textarea>
+				</div>
+				<div class="form-group col-12">
+					<button class="btn btn-second btn-block w-100">Enviar Consulta</button>
+				</div>
+			</form>
+		</div>
+	</section>
+<app-footer></app-footer>

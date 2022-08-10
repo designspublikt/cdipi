@@ -4,37 +4,57 @@
 	<app-section-title [title]="'Nosotros'"></app-section-title>
 	
 	<div class="about-us-info">
-		<p class="text1">El Centro de Innovación y Desarrollo profesional Integral es una plataforma cuya misión es desarrollar las habilidades de emprendedores y profesionales de todos los ámbitos, ofreciendo un entorno de aprendizaje accesible, innovador, colaborativo y completamente en línea. El CDIPI tiene como objetivo ayudar al desarrollo de habilidades prácticas, a través de la experiencia y la resolución de problemas concretos en los negocios.</p>
-		<img src="assets/img/aboutus/aboutus.jpg" alt="About Us Image">
-		<p class="text2">Se centra en la adquisición de las competencias necesarias para la puesta en marcha y el crecimiento empresarial, cómo también en el crecimiento personal de los emprendedores. Su experiencia se basa en las habilidades de un equipo de expertos con más de 10 años de experiencia en diversos campos como el desarrollo personal, la gestión empresarial, las tecnologías, etc.</p>
-	</div>
-	<div class="banner-horizontal">
+		<p>El Centro de Innovación y Desarrollo profesional Integral es un organismo cuya misión es desarrollar las habilidades de emprendedores y profesionales de todos los ámbitos, ofreciendo un entorno de aprendizaje accesible, innovador, colaborativo y completamente en línea. También, el CDIPI tiene como objetivo ayudar al desarrollo de habilidades prácticas, a través de la experiencia y la resolución de problemas concretos en los negocios.</p>
+			
+		<p>Para esto contamos con un equipo de expertos que han sido líderes en diversas industrias y cuyo enfoque innovador, para el desarrollo del potencial humano es un acelerador de la transformación. Por otro lado, para dar respuesta a la fuerte demanda de servicios legales y de consultoría migratoria que hemos observado en los últimos años; El CDIPI ha llegado a un acuerdo con un equipo de abogados y consultores para ofrecer estos servicios a través de nuestra plataforma.</p>
+
 		<div class="services-box">
-			<div class="service">
-				<div class="icon-service">
-					<img src="assets/img/home/services/coaching.png" alt="Coahing Image">
-				</div>
-				<div class="description-service">
-					<h6 class="title">Coaching Profesional</h6>
-				</div>
-			</div>
-			<div class="service">
-				<div class="icon-service">
-					<img src="assets/img/home/services/online.png" alt="Online Image">
-				</div>
-				<div class="description-service">
-					<h6 class="title">Capacitación Virtual</h6>
-				</div>
-			</div>
-			<div class="service">
-				<div class="icon-service">
-					<img src="assets/img/home/services/certification.png" alt="Certification Image">
-				</div>
-				<div class="description-service">
-					<h6 class="title">Certificación</h6>
-				</div>
+			<img class="col-12 col-sm-5" src="assets/img/home/aboutUs.jpg" alt="About Us Image">
+	
+			<div class="services col-12 col-sm-7">
+				<h4 class="subtitle py-3"><strong>Nuestros Servicios</strong></h4>
+				<p> Servicios de coaching profesional</p>
+				<p> Servicios de capacitación virtual</p>
+				<p> Servicios de consultoría legal </p>
+				<p> Servicios de consultoría en inmigración</p>
+				<p> Servicios de consultoría en el área de la construcción </p>
 			</div>
 		</div>
+	</div>
+
+	<div class="banner-horizontal">
+		<swiper	class="swiper services-box"
+					[slidesPerView]="1"
+					[draggable]="false"
+					[navigation]="false"
+					[autoplay]="{delay:5000}"
+					[preventClicks]="false">
+
+			<ng-template class="swiperSlide" swiperSlide>
+				<div class="service" routerLink="/coaching">
+					<div class="icon-service">
+						<img class="no-mobile" src="assets/img/aboutus/coaching.jpg" alt="Coahing Image">
+						<img class="mobile" src="assets/img/aboutus/coaching_mb.jpg" alt="Coahing Image">
+					</div>
+				</div>
+			</ng-template>
+			<ng-template class="swiperSlide" swiperSlide>
+				<div class="service" routerLink="/coaching">
+					<div class="icon-service">
+						<img class="no-mobile" src="assets/img/aboutus/online.jpg" alt="Online Image">
+						<img class="mobile" src="assets/img/aboutus/online_mb.jpg" alt="Online Image">
+					</div>
+				</div>
+			</ng-template>
+			<ng-template class="swiperSlide" swiperSlide>
+				<div class="service" routerLink="/coaching">
+					<div class="icon-service">
+						<img class="no-mobile" src="assets/img/aboutus/certification.jpg" alt="Certification Image">
+						<img class="mobile" src="assets/img/aboutus/certification_mb.jpg" alt="Certification Image">
+					</div>
+				</div>
+			</ng-template>
+		</swiper>
 	</div>
 </section>
 

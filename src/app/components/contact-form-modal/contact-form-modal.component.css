@@ -1,0 +1,14 @@
+.contactModalForm {
+	border: 3px solid var(--main-color);
+	max-height: 100vh;
+}
+	.contactForm {
+		display: flex;
+		flex-wrap: wrap;
+	}
+		.contactForm .form-group {
+			padding: .2rem .5rem;
+		}
+		.contactForm .form-control {
+			font-size: .8rem;
+		}

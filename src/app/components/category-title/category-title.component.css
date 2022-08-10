@@ -8,6 +8,12 @@
 		justify-content: center;
 		align-items: center;
 		padding: .3rem 1rem;
+		max-width: 100%;
+	}
+	@media screen and (max-width: 768px) {
+		.category-title-content {
+			min-width: 250px;
+		}
 	}
 	.category-title-content .category-text {
 		text-transform: uppercase;
@@ -15,6 +21,11 @@
 		padding: 0;
 		margin: 0;
 		white-space: nowrap;
+	}
+	@media screen and (max-width: 768px) {
+		.category-title-content .category-text {
+			white-space: inherit;
+		}
 	}
 	.category-title-content img {
 		max-width: 25px;
