@@ -379,7 +379,7 @@ app-category-title {
 							cursor: pointer;
 						}
 						.second-section .banner-horizontal .services-box .icon-service img {
-							width: auto;
+							width: 100%;
 						}
 
 				.second-section .courses-box {

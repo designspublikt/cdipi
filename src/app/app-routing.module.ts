@@ -24,6 +24,7 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { CategoryArticlesComponent } from './pages/articles/category-articles/category-articles.component';
 import { MainArticlesComponent } from './pages/articles/main-articles/main-articles.component';
 import { ViewArticleComponent } from './pages/articles/view-article/view-article.component';
+import { CoachPaymentComponent } from './pages/coach-payment/coach-payment.component';
 import { CoachingComponent } from './pages/coaching/coaching.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'aboutus', component: AboutUsComponent },
   { path: 'coaching', component: CoachingComponent },
+  { path: 'coaching-payment/:type', component: CoachPaymentComponent },
   { path: 'articles', component: ArticlesComponent,
     children: [
       { path: '', component: MainArticlesComponent },

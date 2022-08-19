@@ -277,7 +277,7 @@
 				</div>
 			</div>
 			<div class="other-articles">
-				<div *ngFor="let article of articlesByCategory2; let i = index;" class="article" [ngClass]="{'d-none' : i < 1}" [routerLink]="['/articles/view', article.id_article]">
+				<div *ngFor="let article of articlesByCategory2; let i = index;" class="article" [ngClass]="{'d-none' : i < 1 || i > 3}" [routerLink]="['/articles/view', article.id_article]">
 					<div class="article-image col-5">
 						<img [src]="'assets/img/articles/' + article.image" alt="Image Article">
 					</div>

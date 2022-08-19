@@ -4,7 +4,8 @@
 		<app-section-title [title]="'Coaching'"></app-section-title>
 
 		<div class="content">
-			<p>Porque el contexto actual, las innovaciones y la revolución digital te están obligando a revisar tu juego. Descubre nuestros servicios de coaching inspirados en nuestro saber hacer, en gestión y desarrollo profesional y en nuestras iniciativas de transformación empresarial, tecnológica y cultural.</p>
+			<p>Porque el contexto actual, las innovaciones y la revolución digital te están obligando a revisar tu juego.</p>
+			<p>Descubre nuestros servicios de coaching inspirados en nuestro saber hacer, en gestión y desarrollo profesional y en nuestras iniciativas de transformación empresarial, tecnológica y cultural.</p>
 
 			<div class="coaching-services">
 				<img class="col-12 col-sm-6" src="assets/img/coaching/coach.jpg" alt="Coaching Image">
@@ -66,13 +67,13 @@
 					<select	class="form-control"
 								formControlName="topic">
 						<option value="" disabled selected>¿Qué Coaching te Interesa?</option>
-						<option value="coaching_carrera">Coaching de Carrera</option>
-						<option value="coaching_comunicacion_profesional">Coaching en Comunicación Profesional</option>
-						<option value="coaching_imagen_marca">Coaching en Imagen de Marca</option>
-						<option value="coaching_educacion_emocional_liderazgo">Coaching en Educación Emocional y Liderazgo</option>
-						<option value="coaching_lanzamiento_empresa">Coaching en Lanzamiento de Empresa</option>
-						<option value="coaching_gestion_acompanamiento_ejecutivo">Coaching en Gestión o Acompañamiento Ejecutivo</option>
-						<option value="coaching_equipo_colectivo">Coaching de Equipo o Colectivo</option>
+						<option value="Cocahing de Carrera">Coaching de Carrera</option>
+						<option value="Coaching en Comunicación Profesional">Coaching en Comunicación Profesional</option>
+						<option value="Coaching en Imagen de Marca">Coaching en Imagen de Marca</option>
+						<option value="Coaching en Educación Emocional y Liderazgo">Coaching en Educación Emocional y Liderazgo</option>
+						<option value="Coaching en Lanzamiento de Empresa">Coaching en Lanzamiento de Empresa</option>
+						<option value="Coaching en Gestión o Acompañamiento Ejecutivo">Coaching en Gestión o Acompañamiento Ejecutivo</option>
+						<option value="Coaching de Equipo o Colectivo">Coaching de Equipo o Colectivo</option>
 					</select>
 				</div>
 				<div class="form-group col-12">
@@ -82,7 +83,10 @@
 									formControlName="message"></textarea>
 				</div>
 				<div class="form-group col-12">
-					<button class="btn btn-second btn-block w-100">Enviar Consulta</button>
+					<button class="btn btn-second btn-block w-100">
+						Enviar Consulta
+						<div *ngIf="sendingMail" class="spinner-border mx-2" role="status"></div>
+					</button>
 				</div>
 			</form>
 		</div>

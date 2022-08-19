@@ -47,6 +47,7 @@ import { MainVideosComponent } from './videos/main-videos/main-videos.component'
 import { VideosComponent } from './videos/videos.component';
 import { ViewVideoComponent } from './videos/view-video/view-video.component';
 import { CoachingComponent } from './coaching/coaching.component';
+import { CoachPaymentComponent } from './coach-payment/coach-payment.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { CoachingComponent } from './coaching/coaching.component';
     EditCategoriesAdminComponent,
     ViewCategoriesAdminComponent,
     DeleteCategoriesAdminComponent,
-    CoachingComponent
+    CoachingComponent,
+    CoachPaymentComponent
   ],
   imports: [
     CommonModule,

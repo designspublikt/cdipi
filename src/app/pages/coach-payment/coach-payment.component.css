@@ -1,0 +1,18 @@
+	.payment-options {
+		padding: 1rem 0;
+		display: flex;
+		gap: 2rem;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+		.payment-options .option {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			flex: 0 calc(33.3% - 2rem);
+			min-height: 200px;
+			border: 1px solid #cacaca;
+			padding: 1rem;
+		}

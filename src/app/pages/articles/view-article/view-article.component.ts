@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleFull } from 'src/app/interfaces/article';
 import { ArticlesService } from 'src/app/services/articles.service';
@@ -17,6 +18,8 @@ export class ViewArticleComponent implements OnInit {
 
   constructor(  private _ArticlesService: ArticlesService,
                 private _ActivatedRoute: ActivatedRoute,
+                private _Title: Title,
+                private _Meta: Meta,
                 private _Router: Router) { }
 
   async ngOnInit() {
@@ -25,6 +28,16 @@ export class ViewArticleComponent implements OnInit {
       
       await this.getArticle();
       await this.getArticlesByCategory(this.article.id_category);
+
+      this._Title.setTitle(this.article.title);
+      this._Meta.addTags([
+        {name: 'description', content: this.article.desc_short},
+        {property: 'og:url', content: `https://cdipi.innovacion2.com/#/articles/view/${this.article.id_article}`},
+        {property: 'og:type', content: 'article'},
+        {property: 'og:title', content: this.article.title},
+        {property: 'og:description', content: this.article.desc_short},
+        {property: 'og:image', content: this.article.image}
+      ])
     });
   }
 

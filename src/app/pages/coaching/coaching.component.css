@@ -75,3 +75,10 @@
 		.coaching-form .form-group {
 			padding: .5rem 1rem;
 		}
+
+		.coaching-form button {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+		}
