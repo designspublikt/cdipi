@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleFull } from 'src/app/interfaces/article';
@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-list-articles-admin',
   templateUrl: './list-articles-admin.component.html',
-  styleUrls: ['./list-articles-admin.component.css']
+  styleUrls: ['./list-articles-admin.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListArticlesAdminComponent implements OnInit {
 
@@ -22,6 +23,7 @@ export class ListArticlesAdminComponent implements OnInit {
   async ngOnInit() {
     this.loadingArticles = true;
     await this.getArticles();
+
   }
 
   async getArticles() {    
