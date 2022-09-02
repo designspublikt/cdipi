@@ -20,6 +20,7 @@ export class CoachingComponent implements OnInit {
       lastname: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
+      country: ['', Validators.required],
       topic: ['', Validators.required],
       message: ['', Validators.required]
     });

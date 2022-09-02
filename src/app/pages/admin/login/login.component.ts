@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(  private _FormBuilder: FormBuilder,
                 private _AuthService: AuthService,
                 private _ToastrService: ToastrService,
+                private _localStorage: LocalStorageService,
                 private _Router: Router) {
 
     this.loginForm = this._FormBuilder.group({
@@ -41,6 +43,8 @@ export class LoginComponent implements OnInit {
       },
       showConfirmButton: false
     });
+
+    let localStorage = this._localStorage;
 
     localStorage.clear();
 
@@ -88,6 +92,8 @@ export class LoginComponent implements OnInit {
         username: userSession.user.username,
         token: userSession.token
       }
+
+      let localStorage = this._localStorage;
 
       localStorage.setItem('userSession', JSON.stringify(userData));
       resolve(true);

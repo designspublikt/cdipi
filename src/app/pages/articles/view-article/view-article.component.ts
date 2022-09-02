@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleFull } from 'src/app/interfaces/article';
 import { ArticlesService } from 'src/app/services/articles.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-view-article',
@@ -17,6 +18,7 @@ export class ViewArticleComponent implements OnInit {
 
   constructor(  private _ArticlesService: ArticlesService,
                 private _ActivatedRoute: ActivatedRoute,
+                private _localStorage: LocalStorageService,
                 private _Router: Router) {
   }
 
@@ -26,6 +28,8 @@ export class ViewArticleComponent implements OnInit {
       
       await this.getArticle();
       await this.getArticlesByCategory(this.article.id_category);
+
+      let localStorage = this._localStorage;
 
       localStorage.setItem('article', JSON.stringify(this.article));
     });

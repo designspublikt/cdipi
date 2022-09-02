@@ -14,7 +14,7 @@ import { PipesModule } from './pipes/pipes.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     PagesModule,
     ComponentsModule,

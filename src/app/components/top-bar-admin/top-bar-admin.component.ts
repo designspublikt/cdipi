@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-top-bar-admin',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class TopBarAdminComponent implements OnInit {
 
-  constructor(  private _Router: Router) { }
+  constructor(  private _Router: Router,
+                private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +20,8 @@ export class TopBarAdminComponent implements OnInit {
   }
 
   logout() {
+    let localStorage = this.localStorage;
+
     localStorage.clear();
     this._Router.navigate(['/admin/login']);
   }

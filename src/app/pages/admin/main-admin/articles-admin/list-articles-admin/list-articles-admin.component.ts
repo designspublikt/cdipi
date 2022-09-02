@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ArticleFull } from 'src/app/interfaces/article';
@@ -8,8 +8,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-list-articles-admin',
   templateUrl: './list-articles-admin.component.html',
-  styleUrls: ['./list-articles-admin.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./list-articles-admin.component.css']
 })
 export class ListArticlesAdminComponent implements OnInit {
 
@@ -23,21 +22,20 @@ export class ListArticlesAdminComponent implements OnInit {
   async ngOnInit() {
     this.loadingArticles = true;
     await this.getArticles();
-
   }
 
-  async getArticles() {    
-    let articlesP = new Promise((reject, resolve) => {
-      this._ArticlesService.getAll()
+  async getArticles() {
+    let articlesP = new Promise((resolve, reject) => {
+      this._ArticlesService.getAllDesc()
         .subscribe(articlesRes => {
+          this.loadingArticles = false;
           if(!articlesRes.status) reject(articlesRes);
 
           articlesRes.response.map((article: ArticleFull) => this.articles.push(article));
-          this.loadingArticles = false;
           resolve(articlesRes.status);
         });
-      });
-      
+    });
+
     let result = await articlesP;
     return result;
   }
